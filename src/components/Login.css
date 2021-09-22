@@ -1,0 +1,67 @@
+.Login-content{
+    width: 22rem;
+    height: auto;
+    background-color: white;
+    box-shadow: 3px 4px 10px -3px black;
+}
+.Login-content-logo{
+    height: 10rem;
+    padding: .8rem 1rem;
+    background-color: rgb(40,44,52);
+}
+.Login-content-logo span{
+    color: white;
+}
+.Login-logo{
+    width: auto;
+    height: 8rem;
+}
+.Login-content-form{
+    width: auto;
+    text-align: center;
+    margin: 2rem 0;
+}
+.Login-content-form-icon{
+    position: absolute;
+    margin-left: -2rem;
+    margin-top: 1.2rem;
+    height: 1.1rem;
+}
+#iconIng{
+    margin-left: -1.5rem;
+    margin-right: .6rem;
+    margin-top: -.1rem;
+}
+#iconRec{
+    margin-left: -1rem;
+    margin-right: 0rem;
+    margin-top: -.1rem;
+}
+.Login-content-form input{
+    width: 14rem;
+    height: 1.5rem;
+    margin: .8rem 0;
+    border: 0rem;
+    border-radius: .15rem;
+    box-shadow: 1px 2px 4px -1px black;
+}
+.Login-content-form button{
+    width: 6.5rem;
+    padding: .3rem .8rem;
+    color: white;
+    font-size: .8rem;
+    border: 0rem;
+    border-radius: .4rem;
+}
+.Login-content-form #button-ingresar{
+    background-color: rgb(10,207,54);
+}
+.Login-content-form #button-recuperar{
+    margin-left: 1.5rem;
+    background-color: rgb(232,35,35);
+}
+.Login-content-form a p{
+    padding-left: 1.5rem;
+    font-size: .8rem;
+    color: blue;
+}
