@@ -1,5 +1,5 @@
 import './App.css';
-import GestVend from './ListaVentas.js';
+import GestVend from './components/ListaVentas.js';
 import React from "react";
 import { Link } from "react-router-dom";
 function App() {

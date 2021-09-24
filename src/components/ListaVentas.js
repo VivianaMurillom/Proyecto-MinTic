@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './css.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
@@ -8,14 +7,9 @@ function GestVend() {
     return (
         <div className="GestVend">
             <header className="GestVend-header">
-
-
                 <body>
-
-
                     <header>
 
-                        <div id="logo"></div>
                         <div id="User" class="redes1"><h6>Admin 1</h6></div>
                         <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
 
