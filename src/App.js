@@ -9,11 +9,10 @@ function App() {
       <div>
 
         <p>
-          Edit <code>src/App.js</code> .
+          Edit <code></code> .
         </p>
 
-        <Link to="/pag" >Gestion de vendedores</Link> 
-        
+        <Link to="/pag" >Gestion de vendedores</Link>
 
       </div>
 
