@@ -16,7 +16,7 @@ function UpdateVend() {
                 <body>
 
 
-              
+
 
                     <header>
 
@@ -26,7 +26,7 @@ function UpdateVend() {
 
                     </header>
 
-                
+
                     <section>
 
                         <aside id="izq"></aside>
@@ -41,7 +41,7 @@ function UpdateVend() {
                                 <div class="col-md-6">
                                     <label for="" class="form-label">Nombre</label>
                                     <input type="text" class="form-control" id="" value="Manuel "></input>
-                                    
+
                                 </div>
                                 <div class="col-md-6">
                                     <label for="" class="form-label">Apellido</label>
@@ -85,13 +85,13 @@ function UpdateVend() {
                                     <label for="inputZip" class="form-label">Zip</label>
                                     <input type="text" class="form-control" id="inputZip">
                                     </input>
-                               </div>
+                                </div>
                                 <div class="col-12">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="gridCheck">
                                         </input>
-                                        <label class ="form-check-label" for="gridCheck">
-                                        Check me out
+                                        <label class="form-check-label" for="gridCheck">
+                                            Check me out
                                         </label>
                                     </div>
                                 </div>
@@ -105,10 +105,10 @@ function UpdateVend() {
                         </div>
 
                         <aside id="der"></aside>
-                        
+
                     </section>
 
-                   
+
 
                     <footer> &copy; Todos los derechos reservados.</footer>
 
