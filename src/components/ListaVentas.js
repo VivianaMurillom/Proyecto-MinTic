@@ -3,8 +3,47 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import { Link } from "react-router-dom";
 
-function GestVend() {
-    return (
+class GestVend extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            datos:
+                [
+                    {
+                        "id": 1,
+                        "nombre": " Manuel",
+                        "apellido": "Silva",
+                        "nDocumento": 1234567890,
+                        "telefono": 3210000000,
+                        "direccion": "carrera  #",
+                        "estado": "activo"
+                    },
+                    {
+                        "id": 2,
+                        "nombre": " Manuel",
+                        "apellido": "Silva",
+                        "nDocumento": 1234567890,
+                        "telefono": 3210000000,
+                        "direccion": "carrera  #",
+                        "estado": "activo"
+
+                    },
+                    {
+                        "id": 3,
+                        "nombre": " Manuel",
+                        "apellido": "Silva",
+                        "nDocumento": 1234567890,
+                        "telefono": 3210000000,
+                        "direccion": "carrera  #",
+                        "estado": "activo"
+
+                    }]
+        }
+    }
+
+
+    render() {
+return (
         <div className="GestVend">
             <header className="GestVend-header">
                 <body>
@@ -39,40 +78,26 @@ function GestVend() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Manuel </td>
-                                        <td>Silva </td>
-                                        <td>123456780</td>
-                                        <td>3100000000</td>
-                                        <td>Carrera # </td>
-                                        <td>Activo </td>
-                                        <td><button type="button" class="btn btn-warning"><Link to="/updateVd">Editar</Link><a href="./FormH7.html"> </a></button></td>
-                                        <td><button type="button" class="btn btn-danger"> X </button></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Diego</td>
-                                        <td>Diaz</td>
-                                        <td>1234567890</td>
-                                        <td>3100000001</td>
-                                        <td>Carrera # </td>
-                                        <td>Activo </td>
-                                        <td><button type="button" class="btn btn-warning">Editar </button></td>
-                                        <td><button type="button" class="btn btn-danger"> X </button></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td >Larry</td>
-                                        <td >the Bird</td>
-                                        <td>1234567890</td>
-                                        <td>3100000001</td>
-                                        <td>Carrera # </td>
-                                        <td>Activo </td>
-                                        <td><button type="button" class="btn btn-warning">Editar </button></td>
-                                        <td><button type="button" class="btn btn-danger"> X </button></td>
 
-                                    </tr>
+
+                                    
+                                    {this.state.datos.map((exercise) => {
+                                        return (
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>{exercise.nombre}</td>
+                                                <td>{exercise.nDocumento}</td>
+                                                <td>{exercise.telefono}</td>
+                                                <td>{exercise.direccion}</td>
+                                                <td>{exercise.estado}</td>
+                                                <td><button type="button" class="btn btn-warning"><Link to="/updateVd">Editar</Link><a href="./FormH7.html"> </a></button></td>
+                                                <td><button type="button" class="btn btn-danger"> X </button></td>
+                                            </tr>
+                                        )
+                                    })}
+
+
+
                                 </tbody>
                             </table>
 
@@ -91,7 +116,9 @@ function GestVend() {
 
             </header>
         </div>
-    );
-}
 
+    )
+
+    }
+}
 export default GestVend;
