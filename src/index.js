@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import GestVend from './ListaVentas';
+import UpdateVend from './UpdateVend';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Route,Switch}  from "react-router-dom";
 
@@ -14,6 +15,8 @@ ReactDOM.render(
     <Switch>
     <Route exact path="/" component={App} />
     <Route path="/pag" component={GestVend} />
+    <Route path="/updateVd" component={UpdateVend} />
+    
     </Switch>
     </BrowserRouter>,rootElement
   
