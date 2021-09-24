@@ -1,17 +1,19 @@
 import './App.css';
-
-//Componentes
-import Login from './components/Login';
-
+import GestVend from './ListaVentas.js';
+import React from "react";
+import { Link } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <span>Header</span>
-      </header>
-      <section className="App-section">
-        <Login />
-      </section>
+      <div>
+
+        <p>
+          Edit <code></code> .
+        </p>
+
+        <Link to="/pag" >Gestion de vendedores</Link>
+
+      </div>
     </div>
   );
 }
