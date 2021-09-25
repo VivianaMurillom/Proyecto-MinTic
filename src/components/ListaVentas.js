@@ -5,21 +5,22 @@ import { Link } from "react-router-dom";
 
 class GestVend extends React.Component {
     constructor(props) {
+
         super(props)
         this.state = {
             datos:
                 [{
-                        "id": 1,
-                        "nombreP": "Pantalones",
-                        "cantidad": 3,
-                        "precio": 15000
-                    },
-                    {
-                        "id": 2,
-                        "nombreP": "Camisas",
-                        "cantidad": 2,
-                        "precio": 10000
-                    }],
+                    "id": 1,
+                    "nombreP": "Pantalones",
+                    "cantidad": 3,
+                    "precio": 15000
+                },
+                {
+                    "id": 2,
+                    "nombreP": "Camisas",
+                    "cantidad": 2,
+                    "precio": 10000
+                }],
             vendedores: [{
                 "id": 3,
                 "nombre": " Manuel",
@@ -46,7 +47,12 @@ class GestVend extends React.Component {
                 "estado": "activo"
             }]
         }
+
+
     }
+    handleClick = () => {
+        console.log("asdasd");
+    };
 
 
     render() {
@@ -55,7 +61,7 @@ class GestVend extends React.Component {
                 <header className="GestVend-header">
                     <body>
                         <header>
-                        <div id="logo"></div>
+                            <div id="logo"></div>
                             <div id="User" class="redes1"><h6>Admin 1</h6></div>
                             <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
 
@@ -63,55 +69,55 @@ class GestVend extends React.Component {
 
 
                         <form class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Nombre Comprador</label>
-                                    <input type="text" class="form-control" id="" value=""></input>
-                                </div>
-                            
-                                <div class="col-md-4">
-                                    <label for="inputState" class="form-label">Producto</label>
-                                    <select id="inputState" class="form-select">
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Nombre Comprador</label>
+                                <input type="text" class="form-control" id="" value=""></input>
+                            </div> <br></br>
+
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Producto</label>
+                                <select id="inputState" class="form-select">
                                     {this.state.datos.map((productos) => {
                                         return (
                                             <option>{productos.nombreP}</option>
                                         )
                                     })}
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
-                                    <label for="inputZip" class="form-label">Cantidad</label>
-                                    <input type="number" class="form-control" id="">
-                                    </input>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="inputState" class="form-label">Vendedor</label>
-                                    <select id="inputState" class="form-select">
-                                    
+                                </select>
+                            </div> <br></br>
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="">
+                                </input>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Vendedor</label>
+                                <select id="inputState" class="form-select">
+
                                     {this.state.vendedores.map((vendedor) => {
                                         return (
                                             <option>{vendedor.nombre}</option>
                                         )
                                     })}
-                                    </select>
-                                </div>
-                             
-
-                                <aside id="izq"></aside>
-                            <div>
-                                
+                                </select>
                             </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>
-                                
-                            </form>
+
+
+                            <aside id="izq"></aside>
+                            <div>
+
+                            </div>
+                            <div class="col-12">
+                                <button type="submit"onClick={this.handleClick} class="btn btn-primary">Guardar</button>
+                            </div>
+
+                        </form>
 
                         <section>
 
-                            
+                            <br></br>
 
                             <div class="container">
-                                <h3>Lista de vendedores</h3>
+                                <h3>Gestion De Ventas</h3>
                                 <table class="table">
                                     <thead>
                                         <tr>

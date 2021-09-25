@@ -4,6 +4,10 @@
 	list-style:none;
 	}
 
+	.col-md-2 {
+		flex: 0 0 auto;
+		width: 8.666667%;
+}
 header{
 	position:relative;
 	margin:20px auto;
