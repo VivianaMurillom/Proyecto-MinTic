@@ -1,0 +1,27 @@
+[
+    {"id":1,
+     "nombre":" Manuel",
+     "apellido":"Silva",
+     "nDocumento":1234567890,
+     "telefono":3210000000,
+     "direccion":"carrera  #", 
+     "estado":"activo"
+    },
+    {"id":2,
+        "nombre":" Manuel",
+        "apellido":"Silva",
+        "nDocumento":1234567890,
+        "telefono":3210000000,
+        "direccion":"carrera  #", 
+        "estado":"activo"
+
+    },
+    {"id":3,
+        "nombre":" Manuel",
+        "apellido":"Silva",
+        "nDocumento":1234567890,
+        "telefono":3210000000,
+        "direccion":"carrera  #", 
+        "estado":"activo"
+
+    }]

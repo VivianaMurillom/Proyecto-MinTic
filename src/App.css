@@ -1,21 +1,31 @@
-.App {
+.GestVend {
   text-align: center;
 }
 
-.App-logo {
+.GestVend-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .GestVend-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
+.GestVend-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 8vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-section {
+  background-color: white;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +34,7 @@
   color: white;
 }
 
-.App-link {
+.GestVend-link {
   color: #61dafb;
 }
 
