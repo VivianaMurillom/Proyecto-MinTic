@@ -12,7 +12,6 @@ return(
     <Route exact path="/" component={App} />
     <Route path="/pag" component={GestVend} />
     <Route path="/updateVd" component={UpdateVend} />
-    
     </Switch>
     </BrowserRouter>
 );
