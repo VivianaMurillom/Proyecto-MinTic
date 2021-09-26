@@ -1,18 +1,11 @@
 import './App.css';
 import React from "react";
-import { Link } from "react-router-dom";
+import Header from './components/Header';
+
 function App() {
   return (
     <div className="App">
-      <div>
-
-        <p>
-          Edit <code></code> .
-        </p>
-
-        <Link to="/pag" >Gestion de vendedores</Link>
-
-      </div>
+      <Header/>
     </div>
   );
 }
