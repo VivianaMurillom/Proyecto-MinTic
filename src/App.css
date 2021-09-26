@@ -1,42 +1,3 @@
-.GestVend {
-  text-align: center;
-}
-
-.GestVend-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .GestVend-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.GestVend-header {
-  background-color: #282c34;
-  min-height: 8vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-section {
-  background-color: white;
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.GestVend-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
@@ -45,4 +6,126 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+  header{
+  position: relative;
+  margin: 20px auto;
+  width: 1000px;
+  height: 120px;
+}
+
+  #logo{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 200px;
+  height: 60px;
+  background: #ccc;
+}
+
+  .redes{
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  background: #ccc;
+  border-radius: 100%;
+}
+
+  #icono1{
+  top: 42px;
+  right: 120px;
+}
+
+  #icono2{
+  top: 42px;
+  right: 71px;
+}
+
+  #icono3{
+  top: 42px;
+  right: 19px;
+}
+
+  nav{
+  position: relative;
+  margin: auto;
+  width: 1000px;
+  height: 48px;
+}
+
+  .botones{
+  float: left;
+  width: 196px;
+  margin: 0px 2px;
+  height: 48px;
+  background: #333;
+}
+
+  #top{
+  position: relative;
+  margin: 20px auto;
+  width: 1000px;
+  height: 192px;
+}
+
+  #top ul{
+  width: 1010px;
+  height: 192px;
+}
+
+  #top ul li{
+  float: left;
+  width: 326px;
+  height: 192px;
+  background: black;
+  margin-right: 10px;
+}
+
+  section{
+  position: relative;
+  margin: auto;
+  width: 1000px;
+  height: 453px;
+}
+
+  aside#izq{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 453px;
+  background: #333;
+}
+
+  article{
+  position: absolute;
+  left: 200px;
+  top: 0;
+  width: 600px;
+  height: 453px;
+  background: #666;
+}
+
+  aside#der{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
+  height: 453px;
+  background: #333;
+}
+
+  footer{
+  position: relative;
+  margin: 20px auto;
+  width: 1000px;
+  height: 70px;
+  background: #888;
 }

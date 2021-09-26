@@ -4,7 +4,6 @@ import iconPass from '../img/icon-password.svg';
 import iconIng from '../img/icon-btn-ingresar.svg';
 import iconRec from '../img/icon-btn-recuperar.svg';
 import React from "react";
-import './css.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from './Header';
 import './Login.css';

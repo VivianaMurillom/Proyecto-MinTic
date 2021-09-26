@@ -1,5 +1,5 @@
 import React from "react";
-import './css.css';
+import './ListaVentas.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
 

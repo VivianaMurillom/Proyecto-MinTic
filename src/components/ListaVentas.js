@@ -1,11 +1,13 @@
-import './css.css';
+import './ListaVentas.css';
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from './Header';
 
 class GestVend extends React.Component {
     constructor(props) {
 
         super(props)
+        
         this.state = {
             datos:
                 [{
@@ -50,16 +52,25 @@ class GestVend extends React.Component {
 
     }
     handleClick = () => {
-        console.log("asdasd");
+        this.setState({ myArray: this.state.datos.push({
+        "id": 3,
+        "nombreP": "Camisaass",
+        "cantidad": 23,
+        "precio": 10000
+    })})
     };
 
 
     render() {
         return (
+
             <div className="GestVend">
+                <div>
+                    <Header />
+                </div>
                 <header className="GestVend-header">
                     <body>
-                        <header>
+                        <header class="head">
                             <div id="logo"></div>
                             <div id="User" class="redes1"><h6>Admin 1</h6></div>
                             <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
@@ -68,12 +79,12 @@ class GestVend extends React.Component {
 
 
                         <form class="row g-3">
-                            <div class="col-md-6">
+                            {/* <div class="col-md">
                                 <label for="" class="form-label">Nombre Comprador</label>
-                                <input type="text" class="form-control" id="" value=""></input>
+                                <input type="text" class="form-control" ></input>
                             </div> <br></br>
 
-                            <div class="col-md-4">
+                            <div class="col-md">
                                 <label for="inputState" class="form-label">Producto</label>
                                 <select id="inputState" class="form-select">
                                     {this.state.datos.map((productos) => {
@@ -83,12 +94,12 @@ class GestVend extends React.Component {
                                     })}
                                 </select>
                             </div> <br></br>
-                            <div class="col-md-2">
+                            <div class="col-md">
                                 <label for="inputZip" class="form-label">Cantidad</label>
                                 <input type="number" class="form-control" id="">
                                 </input>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md">
                                 <label for="inputState" class="form-label">Vendedor</label>
                                 <select id="inputState" class="form-select">
 
@@ -101,17 +112,17 @@ class GestVend extends React.Component {
                             </div>
 
 
-                            <aside id="izq"></aside>
+                            <aside ></aside>
                             <div>
 
-                            </div>
+                            </div> */}
                             <div class="col-12">
-                                <button type="submit"onClick={this.handleClick} class="btn btn-primary">Guardar</button>
+                                <button type="submit" onClick={this.handleClick} class="btn btn-primary">Guardar</button>
                             </div>
 
                         </form>
 
-                        <section>
+                        <section id="" >
 
                             <br></br>
 
@@ -146,7 +157,7 @@ class GestVend extends React.Component {
                                     </tbody>
                                 </table>
                             </div>
-                            <aside id="der"></aside>
+                            <aside ></aside>
                             <span id="to"></span>
                         </section>
 
