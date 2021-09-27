@@ -1,6 +1,5 @@
 import React from "react";
-import './ListaVentas.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import './ListaVentas.css'; 
 import { Link } from "react-router-dom";
 
 class Header extends React.Component{
