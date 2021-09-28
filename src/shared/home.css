@@ -1,0 +1,23 @@
+header{
+	position:relative;
+	margin:20px auto;
+	width:1000px;
+	height:120px;
+    border-bottom: 2px solid #141414;
+	}	
+
+section{
+	position:relative;
+	margin:auto;
+	width:1000px;
+	height:453px;
+	}
+  
+article{
+	position:absolute;
+	left:200px;
+	top:0;
+	width:600px;
+	height:453px;
+  margin-top: 1rem;
+}
