@@ -5,17 +5,18 @@ import Header from '../../components/Header';
 import Lista_Productos from '../../producto/componente/lista-productos';
 
 class GestVend extends React.Component {
+    
+    
     constructor(props) {
-
-        super(props)
         
+        super(props)
         this.state = {
             datos:[],
-            vendedores: []
+            vendedores: [],
+            ventas:[]
         }
-
-
     }
+    
     handleClick = () => {
         this.setState({ myArray: this.state.datos.push({
         "id": 3,
@@ -26,11 +27,15 @@ class GestVend extends React.Component {
     };
 
 
+
     render() {
+       console.log();
+
         return (
+            
 
             <div className="GestVend">
-            {}
+            
                 
                 <div>
                     <Header />
@@ -133,5 +138,7 @@ class GestVend extends React.Component {
         )
 
     }
+    
 }
+
 export default GestVend;
