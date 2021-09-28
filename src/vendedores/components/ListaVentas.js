@@ -66,24 +66,17 @@ class GestVend extends React.Component {
 
             <div className="GestVend">
                 <div>
-               
+                    <Header />
                 </div>
                 <header className="GestVend-header">
                     <body>
-                        <header class="head">
-                            <div id="logo"></div>
-                            <div id="User" class="redes1"><h6>Admin 1</h6></div>
-                            <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
-
-                        </header>
-                        <Header />
                         <form class="">
-                             <div class="col-md">
+                             <div class="col-sm-4">
                                 <label for="" class="form-label">Nombre Comprador</label>
                                 <input type="text" class="form-control" ></input>
                             </div> <br></br>
 
-                            <div class="col-md">
+                            <div class="col-sm-4">
                                 <label for="inputState" class="form-label">Producto</label>
                                 <select id="inputState" class="form-select">
                                     {this.state.datos.map((productos) => {
@@ -93,12 +86,12 @@ class GestVend extends React.Component {
                                     })}
                                 </select>
                             </div> <br></br>
-                            <div class="col-md">
+                            <div class="col-sm-4">
                                 <label for="inputZip" class="form-label">Cantidad</label>
                                 <input type="number" class="form-control" id="">
                                 </input>
                             </div>
-                            <div class="col-md">
+                            <div class="col-sm-4">
                                 <label for="inputState" class="form-label">Vendedor</label>
                                 <select id="inputState" class="form-select">
 
