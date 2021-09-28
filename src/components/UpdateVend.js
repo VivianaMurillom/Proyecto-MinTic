@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-import './css.css';
-=======
 import '../ventas/components/ListaVentas.css'
 import 'bootstrap/dist/css/bootstrap.css';
->>>>>>> 59a5067fb574784e33c8c373c678ee2264e64113
 import React from "react";
+
 
 function UpdateVend() {
     return (
