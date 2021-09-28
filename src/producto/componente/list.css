@@ -1,4 +1,10 @@
-.row{
-    width: 280px;
-    height: 280px;
+.card-img-top{
+    height: 10rem;
+}
+.card-title{
+    font-size: 1rem;
+}
+.card-text{
+    font-style: italic;
+    color: rgb(12, 163, 100);
 }

@@ -1,15 +1,15 @@
-import {  Card,Button } from 'react-bootstrap';
 const Producto=({producto})=>{
     return(
-
-        <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={producto.image} style={{width:'50px'}} />
-  <Card.Body>
-    <Card.Title>{producto.nombreP}</Card.Title>
-    <Card.Text>Precio: {producto.precio}</Card.Text>
-    <Button variant="primary">Editar</Button>
-  </Card.Body>
-</Card>
+      <div className="p-1 col">
+        <div className="card" style={{width:'9rem'}}>
+          <img src={producto.image} className="card-img-top" alt="productos"/>
+          <div className="card-body">
+            <h5 className="card-title">{producto.nombreP}</h5>
+            <p className="card-text">$ {producto.precio}</p>
+            <button className="btn btn-primary" variant="primary">Editar</button>
+          </div>
+        </div>
+      </div>
     );
 }
 export default Producto;

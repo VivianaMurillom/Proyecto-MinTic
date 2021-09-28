@@ -1,47 +1,30 @@
 import './home.css';
-import { Card } from 'react-bootstrap/Card';
+import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import Header from '../components/Header';
 import Lista_Productos from "../producto/componente/lista-productos";
 function home() {
   
   return (
-    <div >
-      
-      <html>
-        <head>
-          <title>Propiedades de Ubicación</title>
-        </head>
-        <body>
-          <header>
-         
-            <div id="logo"></div>
-            <div id="icono1" class="redes"></div>
-            <div id="icono2" class="redes"></div>
-            <div id="icono3" class="redes"></div>
-           
-          </header>
+    <div className="container-fluid">
+      <div className="row">
           <Header />
-          <section>
-            <aside id="izq"></aside>
-            <article class="article">
-              <Lista_Productos></Lista_Productos>
-            </article>
-            <aside id="der"></aside>
-          </section>
-
-          <footer>
+      </div>
 
 
-          </footer>
+      <div className="row justify-content-center">
+        <div className="p-3 col col-sm-7">
+          <Lista_Productos></Lista_Productos>
+        </div>
+      </div>
 
 
-
-
-        </body>
-      </html>
+      <div className="row justify-content-center">
+        <div className="col col-sm-8">
+          <h4>Footer</h4>
+        </div>
+      </div>
     </div>
-
   );
 }
 
