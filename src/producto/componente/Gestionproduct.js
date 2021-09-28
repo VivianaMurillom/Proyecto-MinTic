@@ -10,7 +10,7 @@ function Gestproduction() {
                     <header>
 
                         <div id="User" class="redes1"><h6>Admin 1</h6></div>
-                        <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
+                        <div id="Login-Logo" class="redes" ><image src="./images/Login-logo" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
 
                     </header>
 
@@ -28,6 +28,7 @@ function Gestproduction() {
                                         <th scope="col">Descripción</th>
                                         <th scope="col">Valor Unitario</th>
                                         <th scope="col">Estado</th>
+                                        <th scope="col">Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,18 +37,21 @@ function Gestproduction() {
                                         <td>Galletas 2 Tacos Internos</td>
                                         <td>$4.450</td>
                                         <td>Disponible</td>
+                                        <td><button type="button" class="btn btn-danger"> X </button></td>
                                     </tr>
                                     <tr>
                                         <td>1238</td>
                                         <td>Chocolatina Gol 24 Unds</td>
                                         <td>$19.200</td>
                                         <td>No Disponible</td>
+                                        <td><button type="button" class="btn btn-danger"> X </button></td>
                                     </tr>
                                     <tr>
                                         <td >1248</td>
                                         <td >Café 3 En 1</td>
                                         <td>$10.900</td>
                                         <td>Disponible</td>
+                                        <td><button type="button" class="btn btn-danger"> X </button></td>
                                     </tr>
                                 </tbody>
                             </table>
