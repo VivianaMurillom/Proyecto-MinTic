@@ -97,7 +97,7 @@ render(){
 return(
     <div className="row">
         {datos.map((producto)=>(<Producto producto={producto}/>))}
-        {<Lista_Productos producto={datos}/>} 
+        {/* {<Lista_Productos producto={datos}/>}  */}
     </div>
           
 );
