@@ -11,6 +11,9 @@ function App() {
         </p>
 
         <Link to="/pag" >Gestion de vendedores</Link>
+        <p>
+        <Link to="/Listaproduct" >Gestion de productos</Link>
+        </p>
 
       </div>
     </div>

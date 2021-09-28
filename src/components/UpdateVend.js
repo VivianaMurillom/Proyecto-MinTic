@@ -1,5 +1,4 @@
 import './css.css';
-import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 
 function UpdateVend() {
