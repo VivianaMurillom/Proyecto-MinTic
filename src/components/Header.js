@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 class Header extends React.Component{
     render(){
         return (
-            <div className="container-fluid">
-                <div class="row justify-content-md-center">
+            <div className="container-fluid" >
+                <div class=""> 
                     <div class="col-md-9">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">

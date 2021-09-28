@@ -66,7 +66,7 @@ class GestVend extends React.Component {
 
             <div className="GestVend">
                 <div>
-                    <Header />
+               
                 </div>
                 <header className="GestVend-header">
                     <body>
@@ -76,10 +76,9 @@ class GestVend extends React.Component {
                             <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
 
                         </header>
-
-
-                        <form class="row g-3">
-                            {/* <div class="col-md">
+                        <Header />
+                        <form class="">
+                             <div class="col-md">
                                 <label for="" class="form-label">Nombre Comprador</label>
                                 <input type="text" class="form-control" ></input>
                             </div> <br></br>
@@ -115,7 +114,7 @@ class GestVend extends React.Component {
                             <aside ></aside>
                             <div>
 
-                            </div> */}
+                            </div> 
                             <div class="col-12">
                                 <button type="submit" onClick={this.handleClick} class="btn btn-primary">Guardar</button>
                             </div>
@@ -124,7 +123,7 @@ class GestVend extends React.Component {
 
                         <section id="" >
 
-                            <br></br>
+                            <br></br><br></br><br></br>
 
                             <div class="container">
                                 <h3>Gestion De Ventas</h3>
