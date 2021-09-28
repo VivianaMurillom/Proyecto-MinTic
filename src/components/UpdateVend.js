@@ -1,4 +1,4 @@
-import '../vendedores/components/ListaVentas.css'
+import '../ventas/components/ListaVentas.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 

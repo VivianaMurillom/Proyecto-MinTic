@@ -2,6 +2,7 @@ import './ListaVentas.css';
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from '../../components/Header';
+import Lista_Productos from '../../producto/componente/lista-productos';
 
 class GestVend extends React.Component {
     constructor(props) {
@@ -9,44 +10,8 @@ class GestVend extends React.Component {
         super(props)
         
         this.state = {
-            datos:
-                [{
-                    "id": 1,
-                    "nombreP": "Pantalones",
-                    "cantidad": 3,
-                    "precio": 15000
-                },
-                {
-                    "id": 2,
-                    "nombreP": "Camisas",
-                    "cantidad": 2,
-                    "precio": 10000
-                }],
-            vendedores: [{
-                "id": 3,
-                "nombre": " Manuel",
-                "apellido": "Silva",
-                "nDocumento": 1234567890,
-                "telefono": 3210000000,
-                "direccion": "carrera  #",
-                "estado": "activo"
-            }, {
-                "id": 3,
-                "nombre": " Diego",
-                "apellido": "Silva",
-                "nDocumento": 1234567890,
-                "telefono": 3210000000,
-                "direccion": "carrera  #",
-                "estado": "activo"
-            }, {
-                "id": 3,
-                "nombre": " Pepito",
-                "apellido": "Silva",
-                "nDocumento": 1234567812,
-                "telefono": 3210000032,
-                "direccion": "carrera  #",
-                "estado": "activo"
-            }]
+            datos:[],
+            vendedores: []
         }
 
 
@@ -65,6 +30,8 @@ class GestVend extends React.Component {
         return (
 
             <div className="GestVend">
+            {}
+                
                 <div>
                     <Header />
                 </div>
