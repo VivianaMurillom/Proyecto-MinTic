@@ -95,12 +95,13 @@ render(){
     }];
 
 return(
+    
+        // datos.map((producto)=>(<option> {producto.nombreP}</option>))
     <div className="row">
-        {datos.map((producto)=>(<Producto producto={producto}/>))}
-        {/* {<Lista_Productos producto={datos}/>}  */}
+        { datos.map((producto)=>(
+        <Producto producto={producto} />))}
     </div>
           
 );
-}
-} 
+} }
 export default Lista_Productos

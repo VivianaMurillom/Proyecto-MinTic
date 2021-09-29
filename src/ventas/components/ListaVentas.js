@@ -11,9 +11,32 @@ class GestVend extends React.Component {
         
         super(props)
         this.state = {
-            datos:[],
-            vendedores: [],
-            ventas:[]
+            datos:[{
+                "id": 1,
+                "nombreP": "Pantalones",
+                "cantidad": 3,
+                "precio": 15000,
+                "image":"https://m.media-amazon.com/images/I/61qMt8YrVtL._AC_UY445_.jpg"            
+            },
+            {                "id": 2,
+                "nombreP": "Camisas",
+                "cantidad": 2,
+                "precio": 10000,
+                "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
+            }],
+            vendedores: [{
+            "id": 1,
+            "nombreVendedor": "Manuel"},
+            {
+            "id": 2,
+            "nombreVendedor": "Cristian"}
+            ],
+            ventas:[{"id":1,
+            "nombreComprador":"Diego",
+            "producto":"Camisas",
+            "cantidad":5,
+            "nombreVendedor":"Manuel",
+            "precio":1000}]
         }
     }
     
@@ -47,13 +70,15 @@ class GestVend extends React.Component {
                                 <label for="" class="form-label">Nombre Comprador</label>
                                 <input type="text" class="form-control" ></input>
                             </div> <br></br>
+                          
 
                             <div class="col-sm-4">
                                 <label for="inputState" class="form-label">Producto</label>
                                 <select id="inputState" class="form-select">
-                                    {this.state.datos.map((productos) => {
+                                {/* <Lista_Productos></Lista_Productos> */}
+                                {this.state.datos.map((prod) => {
                                         return (
-                                            <option>{productos.nombreP}</option>
+                                            <option>{prod.nombreP}</option>
                                         )
                                     })}
                                 </select>
@@ -69,7 +94,7 @@ class GestVend extends React.Component {
 
                                     {this.state.vendedores.map((vendedor) => {
                                         return (
-                                            <option>{vendedor.nombre}</option>
+                                            <option>{vendedor.nombreVendedor}</option>
                                         )
                                     })}
                                 </select>
@@ -96,6 +121,7 @@ class GestVend extends React.Component {
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
+                                            <th scope="col">Comprador</th>
                                             <th scope="col">Nombre Producto</th>
                                             <th scope="col">Cantidad</th>
                                             <th scope="col">Vendedor</th>
@@ -105,14 +131,15 @@ class GestVend extends React.Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {this.state.datos.map((exercise) => {
+                                        {this.state.ventas.map((exercise) => {
                                             return (
                                                 <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>{exercise.nombreP}</td>
+                                                    <th scope="row">1</th>                                                    
+                                                    <td>{exercise.nombreComprador}</td>
+                                                    <td>{exercise.producto}</td>
                                                     <td>{exercise.cantidad}</td>
-                                                    <td>Vendedor</td>
-                                                    <td>{exercise.precio * exercise.cantidad}</td>
+                                                    <td>{exercise.nombreVendedor}</td>
+                                                    <td>{exercise.precio}</td>
                                                     <td><button type="button" class="btn btn-warning"><Link to="/updateVd">Editar</Link><a href="./FormH7.html"> </a></button></td>
                                                     <td><button type="button" class="btn btn-danger"> X </button></td>
                                                 </tr>
