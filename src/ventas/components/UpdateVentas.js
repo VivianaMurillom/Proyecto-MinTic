@@ -5,19 +5,17 @@ import React from "react";
 
 const ventas = [{
     "id": 1,
-    "nombreComprador": "Cristian",
-    "producto": "Camisas",
+    "nombreComprador": "Manuel",
+    "producto": "Pantalones",
     "cantidad": 5,
-    "nombreVendedor": "Cristian",
+    "nombreVendedor": "Diego",
     "precio": 15000
 }, {
     "id": 2,
     "nombreComprador": "Cristian",
     "producto": "Camiseta",
     "cantidad": 5,
-    "nombreVendedor": "Manuel",
     "nombreVendedor": "Manuel Messi",
-
     "precio": 15000
 }]
 function UpdateVentas() {

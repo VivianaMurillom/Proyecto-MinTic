@@ -5,17 +5,17 @@ import ListaVentas from './ListaVentas'
 
 const ventass = [{
     "id": 1,
-    "nombreComprador": "Cristian",
+    "nombreComprador": "Diego",
     "producto": "Camisas",
     "cantidad": 5,
     "nombreVendedor": "Cristian",
     "precio": 15000
 }, {
     "id": 2,
-    "nombreComprador": "Cristian",
-    "producto": "Camiseta",
+    "nombreComprador": "Leonardo",
+    "producto": "Pantalones",
     "cantidad": 5,
-    "nombreVendedor": "Cristian",
+    "nombreVendedor": "Manuel",
     "precio": 15000
 }]
 
