@@ -1,13 +1,12 @@
 import './ListaVentas.css';
 import React from "react";
-import { Link } from "react-router-dom";
 import Header from '../../components/Header';
-import Lista_Productos from '../../producto/componente/lista-productos';
-import GestVend from './ListaVentas';
+import ListaVentas from './ListaVentas'
+
 
 
 const ventass = [{
-    "id": 2,
+    "id": 1,
     "nombreComprador": "Cristian",
     "producto": "Camisas",
     "cantidad": 5,
@@ -16,7 +15,7 @@ const ventass = [{
 }, {
     "id": 2,
     "nombreComprador": "Cristian",
-    "producto": "Camisas",
+    "producto": "Camiseta",
     "cantidad": 5,
     "nombreVendedor": "Cristian",
     "precio": 15000
@@ -92,8 +91,8 @@ class AgregarVenta extends React.Component {
 
                                 </div>
                                 <div class="col">
-                                    <label for="inputZip" class="form-label">Cantidad</label>
-                                    <input type="number" class="form-control" id=""></input>
+                                    <label for="inputZip" class="form-label">Precio</label>
+                                    <input type="text" class="form-control" id=""></input>
                                 </div>
                                 <div class="col">
                                     <label for="inputState" class="form-label">Vendedor</label>
@@ -153,7 +152,7 @@ class AgregarVenta extends React.Component {
                                             <tbody>
 
 
-                                                {ventass.map((ventas) => (<GestVend ventas={ventas} />))}
+                                                {ventass.map((ventas) => (<ListaVentas ventas={ventas} />))}
 
                                             </tbody>
                                         </table>
