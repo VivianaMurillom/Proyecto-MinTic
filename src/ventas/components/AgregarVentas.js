@@ -13,6 +13,13 @@ const ventass = [{
     "cantidad": 5,
     "nombreVendedor": "Cristian",
     "precio": 15000
+},{
+    "id": 2,
+    "nombreComprador": "Cristian",
+    "producto": "Camisas",
+    "cantidad": 5,
+    "nombreVendedor": "Cristian",
+    "precio": 15000
 }]
 
 class AgregarVenta extends React.Component {
@@ -50,12 +57,12 @@ class AgregarVenta extends React.Component {
     }
 
 
-    
+
 
 
 
     render() {
-        
+
         return (
 
 
@@ -65,59 +72,105 @@ class AgregarVenta extends React.Component {
                 <div>
                     <Header />
                 </div>
-                <header className="GestVend-header">
+                <header className="text-center" >
                     <body>
-                        <form class="">
-                            <div class="col-sm-4">
-                                <label for="" class="form-label">Nombre Comprador</label>
-                                <input type="text" class="form-control" ></input>
-                            </div> <br></br>
-
-
-                            <div class="col-sm-4">
-                                <label for="inputState" class="form-label">Producto</label>
-                                <select id="inputState" class="form-select">
-                                    {/* <Lista_Productos></Lista_Productos> */}
-                                    {this.state.datos.map((prod) => {
-                                        return (
-                                            <option>{prod.nombreP}</option>
-                                        )
-                                    })}
-                                </select>
-                            </div> <br></br>
-                            <div class="col-sm-4">
-                                <label for="inputZip" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" id="">
-                                </input>
+                        <h3>Registrar Venta</h3>
+                        <form class="card text-center mb-2" >
+                            <div class="row m-2">
+                                <div class="col">
+                                    <label for="inputZip" class="form-label">Nombre de cliente</label>
+                                    <input type="text" class="form-control" id=""></input>
+                                </div>
+                                <div class="col">
+                                    <label for="inputZip" class="form-label">Numero de documento</label>
+                                    <input type="number" class="form-control" id=""></input>
+                                </div>
+                                <div class="col">
+                                    <label for="inputState" class="form-label">Producto</label>
+                                    <select id="inputState" class="form-select">
+                                        {this.state.datos.map((prod) => {
+                                            return (
+                                                <option>{prod.nombreP}</option>
+                                            )
+                                        })}
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-sm-4">
-                                <label for="inputState" class="form-label">Vendedor</label>
-                                <select id="inputState" class="form-select">
+                            <div class="row m-2">
+                                <div class="col">
 
-                                    {this.state.vendedores.map((vendedor) => {
-                                        return (
-                                            <option>{vendedor.nombreVendedor}</option>
-                                        )
-                                    })}
-                                </select>
+                                    <label for="inputZip" class="form-label">Cantidad</label>
+                                    <input type="number" class="form-control" id=""></input>
+
+                                </div>
+                                <div class="col">
+                                    <label for="inputZip" class="form-label">Cantidad</label>
+                                    <input type="number" class="form-control" id=""></input>
+                                </div>
+                                <div class="col">
+                                    <label for="inputState" class="form-label">Vendedor</label>
+                                    <select id="inputState" class="form-select">
+
+                                        {this.state.vendedores.map((vendedor) => {
+                                            return (
+                                                <option>{vendedor.nombreVendedor}</option>
+                                            )
+                                        })}
+                                    </select>
+                                </div>
+
                             </div>
 
+                            <div class="card-header">
+                                <ul class="nav nav-tabs card-header-tabs">
 
-                            <aside ></aside>
-                            <div>
+                                    <button type="submit" onClick={handleClick} class="btn btn-primary mb-2">Guardar</button>
 
+
+                                </ul>
                             </div>
-                            <div class="col-12">
-                                <button type="submit" onClick={handleClick} class="btn btn-primary">Guardar</button>
 
-                            </div>
 
                         </form>
 
                         <section>
-                            {ventass.map((ventas) => (<GestVend ventas={ventas} />))}
-                            <aside ></aside>
-                            <span id="to"></span>
+                            <div class="card">
+                                <div class="card-header" >
+                                    <ul class="nav nav-tabs card-header-tabs">
+
+                                        <h3 >Lista De Ventas</h3>
+
+
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    
+        <div class="container">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Comprador</th>
+                    <th scope="col">Nombre Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Vendedor</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Actualizar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                        
+                                    {ventass.map((ventas) => (<GestVend ventas={ventas} />))}
+                                 
+                                    </tbody>
+        </table>
+    </div>
+                                </div>
+                            </div>
+
                         </section>
 
 
@@ -136,7 +189,7 @@ class AgregarVenta extends React.Component {
 
 }
 function handleClick() {
-console.log("HELLLLLOOOOOOOOOOOOOOOO")
+    console.log("DEBE GUARDAR")
     const newelement = {
         "id": 2,
         "nombreComprador": "asdasds",

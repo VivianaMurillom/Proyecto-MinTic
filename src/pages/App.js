@@ -5,17 +5,24 @@ import AgregarVenta from '../ventas/components/AgregarVentas';
 import UpdateVend from '../components/UpdateVend';
 import {BrowserRouter,Route,Switch}  from "react-router-dom";
 import Lista_Productos from '../producto/componente/lista-productos';
+import AgregarVendedor from '../vendedores/component/AgregarVendedores';
 class App extends React.Component{
      
 render(){
+const products=this.props.store;
 return(
-    <BrowserRouter>
+    
+    <BrowserRouter>{console.log(products)}
     <Switch>
+        
     <Route exact path="/" component={home} />
     <Route exact path="/login" component={Login}/>
     <Route path="/updateVd" component={UpdateVend} />
-    <Route path="/listaProducts" component={Lista_Productos} />
-    <Route path="/pag" component={AgregarVenta} />
+    
+    <Route path="/listaProducts" component={<Lista_Productos products={products}/> } />
+
+    <Route path="/gvendedores" component={AgregarVendedor} />
+    <Route path="/pag" component={AgregarVenta} products={this.props.store}/>
     </Switch>
     </BrowserRouter>
 );

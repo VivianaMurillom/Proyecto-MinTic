@@ -14,9 +14,10 @@ function home() {
 
       <div className="row justify-content-center">
         <div className="p-3 col col-sm-7">
-          <Lista_Productos></Lista_Productos>
+          <Lista_Productos/>
         </div>
       </div>
+
 
 
       <div className="row justify-content-center">
