@@ -28,6 +28,8 @@ class AgregarVenta extends React.Component {
 
         super(props)
         this.state = {
+            fields: {},
+            errors: {},
             datos: [{
                 "id": 1,
                 "nombreP": "Pantalones",
@@ -51,7 +53,85 @@ class AgregarVenta extends React.Component {
                 "nombreVendedor": "Cristian"
             }
             ]
+            
         }
+    }
+
+
+    
+    handleValidation() {
+        let fields = this.state.fields;
+        let errors = {};
+        let formIsValid = true;
+
+        //Nombre
+        if (!fields["regClientNombre"]) {
+            formIsValid = false;
+            errors["regClientNombre"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regClientNombre"] !== "undefined") {
+            if (!fields["regClientNombre"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["regClientNombre"] = "Solo letras";
+            }
+        }
+
+        //Precio
+        if (!fields["Numdoc"]) {
+            formIsValid = false;
+            errors["Numdoc"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["Numdoc"] !== "undefined") {
+            if (!fields["Numdoc"].match(/^[0-9]+$/)) {
+                formIsValid = false;
+                errors["Numdoc"] = "Solo números";
+            }
+        }
+
+        //Descripcion
+        if (!fields["regCantidad"]) {
+            formIsValid = false;
+            errors["regCantidad"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regCantidad"] !== "undefined") {
+            if (!fields["regCantidad"].match(/^[a-zA-Z0-9 .:,)(-=&%\n]+$/)) {
+                formIsValid = false;
+                errors["regCantidad"] = "Carácteres permitidos: .:,)(-=&%";
+            }
+        }
+
+
+        this.setState({ errors: errors });
+        return formIsValid;
+    }
+
+
+    contactSubmit(e) {
+        e.preventDefault();
+        const products = [];
+
+        if (this.handleValidation()) {
+            products.push(
+                {
+                    nombre: e["target"][0].value,
+                    precio: e["target"][1].value,
+                    descripcion: e["target"][2].value
+                }
+            );
+            //alert(products[0]["nombre"]+products[0]["precio"]+products[0]["descripcion"]);
+            alert("Producto agregado correctamente");
+        } else {
+            alert("Error al agregar.");
+        }
+    }
+
+    handleChange(field, e) {
+        let fields = this.state.fields;
+        fields[field] = e.target.value;
+        this.setState({ fields });
     }
 
     render() {
@@ -63,15 +143,16 @@ class AgregarVenta extends React.Component {
                 <header className="text-center" >
                     <body>
                         <h3>Registrar Venta</h3>
-                        <form class="card text-center mb-2" >
+                        <form class="card text-center mb-2" onSubmit={this.contactSubmit.bind(this)} >
                             <div class="row m-2">
                                 <div class="col">
                                     <label for="inputZip" class="form-label">Nombre de cliente</label>
-                                    <input type="text" class="form-control" id=""></input>
+                                    <input type="text" class="form-control" id="regClientNombre" onChange={this.handleChange.bind(this, "regClientNombre")} value={this.state.fields["regClientNombre"]} required ></input>
+                                    
                                 </div>
                                 <div class="col">
                                     <label for="inputZip" class="form-label">Numero de documento</label>
-                                    <input type="number" class="form-control" id=""></input>
+                                    <input type="number" class="form-control" id="Numdoc" onChange={this.handleChange.bind(this, "Numdoc")} value={this.state.fields["Numdoc"]} required></input>
                                 </div>
                                 <div class="col">
                                     <label for="inputState" class="form-label">Producto</label>
@@ -88,7 +169,7 @@ class AgregarVenta extends React.Component {
                                 <div class="col">
 
                                     <label for="inputZip" class="form-label">Cantidad</label>
-                                    <input type="number" class="form-control" id=""></input>
+                                    <input type="number" class="form-control" id="" d="regCantidad" onChange={this.handleChange.bind(this, "regCantidad")} value={this.state.fields["regCantidad"]} required></input>
 
                                 </div>
                                 <div class="col">
@@ -112,9 +193,8 @@ class AgregarVenta extends React.Component {
                             <div class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs">
 
-                                    <button type="submit" onClick={() => {
-                                    alert.show('Oh look, an alert!')
-                                }} class="btn btn-primary mb-2">Guardar</button>
+                                    <button type="submit"
+                                class="btn btn-primary mb-2">Guardar</button>
 
 
                                 </ul>
