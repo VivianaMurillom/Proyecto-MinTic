@@ -64,7 +64,7 @@ class AgregarVenta extends React.Component {
         let errors = {};
         let formIsValid = true;
 
-        //Nombre
+        //Cliente
         if (!fields["regClientNombre"]) {
             formIsValid = false;
             errors["regClientNombre"] = "Campo obligatorio";
@@ -77,7 +77,7 @@ class AgregarVenta extends React.Component {
             }
         }
 
-        //Precio
+        //Numero de documento
         if (!fields["Numdoc"]) {
             formIsValid = false;
             errors["Numdoc"] = "Campo obligatorio";
@@ -89,17 +89,53 @@ class AgregarVenta extends React.Component {
                 errors["Numdoc"] = "Solo números";
             }
         }
+        //Productos
+        if (!fields["regProduct"]) {
+            formIsValid = false;
+            errors["regProduct"] = "Campo obligatorio";
+        }
 
-        //Descripcion
+        if (typeof fields["regProduct"] !== "undefined") {
+            if (!fields["regProduct"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["regProduct"] = "Solo letras";
+            }
+        }
+
+        //Cantidad
         if (!fields["regCantidad"]) {
             formIsValid = false;
             errors["regCantidad"] = "Campo obligatorio";
         }
 
         if (typeof fields["regCantidad"] !== "undefined") {
-            if (!fields["regCantidad"].match(/^[a-zA-Z0-9 .:,)(-=&%\n]+$/)) {
+            if (!fields["regCantidad"].match(/^[0-9]+$/)) {
                 formIsValid = false;
-                errors["regCantidad"] = "Carácteres permitidos: .:,)(-=&%";
+                errors["regCantidad"] = "Solo números";
+            }
+        }
+        //Total
+        if (!fields["regTotal"]) {
+            formIsValid = false;
+            errors["regTotal"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regTotal"] !== "undefined") {
+            if (!fields["regTotal"].match(/^[0-9]+$/)) {
+                formIsValid = false;
+                errors["regTotal"] = "Solo números";
+            }
+        }
+        //Vendedor
+        if (!fields["regVendedor"]) {
+            formIsValid = false;
+            errors["regVendedor"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regVendedor"] !== "undefined") {
+            if (!fields["regVendedor"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["regVendedor"] = "Solo letras";
             }
         }
 
@@ -116,13 +152,25 @@ class AgregarVenta extends React.Component {
         if (this.handleValidation()) {
             products.push(
                 {
-                    nombre: e["target"][0].value,
-                    precio: e["target"][1].value,
-                    descripcion: e["target"][2].value
+                    nCliente: e["target"][0].value,
+                    ndocument: e["target"][1].value,
+                    producto: e["target"][2].value,
+                    cantidad: e["target"][3].value,
+                    total: e["target"][4].value,
+                    vendedor: e["target"][5].value
+                    
                 }
             );
-            //alert(products[0]["nombre"]+products[0]["precio"]+products[0]["descripcion"]);
-            alert("Producto agregado correctamente");
+            products.map((produ)=>{
+                alert("Venta realizada correctamente!! \n \n"
+                +"Cliente: "+produ.nCliente+", "
+                +"N° Documento: "+produ.ndocument+"\n"
+                +"Producto: "+produ.producto+", "
+                +"Cantidad: "+produ.cantidad+"\n"
+                +"Vendedor: "+produ.vendedor+", "
+                +"Total: "+produ.total+" ")
+            })
+            
         } else {
             alert("Error al agregar.");
         }
@@ -156,10 +204,11 @@ class AgregarVenta extends React.Component {
                                 </div>
                                 <div class="col">
                                     <label for="inputState" class="form-label">Producto</label>
-                                    <select id="inputState" class="form-select">
+                                    <select id="inputState" class="form-select" id="regProduct" onChange={this.handleChange.bind(this, "regProduct")} value={this.state.fields["regProduct"]} required >
+                                  
                                         {this.state.datos.map((prod) => {
                                             return (
-                                                <option>{prod.nombreP}</option>
+                                                <option >{prod.nombreP}</option>
                                             )
                                         })}
                                     </select>
@@ -169,17 +218,17 @@ class AgregarVenta extends React.Component {
                                 <div class="col">
 
                                     <label for="inputZip" class="form-label">Cantidad</label>
-                                    <input type="number" class="form-control" id="" d="regCantidad" onChange={this.handleChange.bind(this, "regCantidad")} value={this.state.fields["regCantidad"]} required></input>
+                                    <input type="number" class="form-control" id="regCantidad" onChange={this.handleChange.bind(this, "regCantidad")} value={this.state.fields["regCantidad"]} required></input>
 
                                 </div>
                                 <div class="col">
-                                    <label for="inputZip" class="form-label">Cantidad</label>
-                                    <input type="number" class="form-control" id=""></input>
+                                    <label for="inputZip" class="form-label">Total</label>
+                                    <input type="number" class="form-control" id="regTotal" onChange={this.handleChange.bind(this, "regTotal")} value={this.state.fields["regTotal"]} required></input>
                                 </div>
                                 <div class="col">
                                     <label for="inputState" class="form-label">Vendedor</label>
-                                    <select id="inputState" class="form-select">
-
+                                    <select id="inputState" class="form-select" id="regVendedor" onChange={this.handleChange.bind(this, "regVendedor")} value={this.state.fields["regVendedor"]} required>
+                                        
                                         {this.state.vendedores.map((vendedor) => {
                                             return (
                                                 <option>{vendedor.nombreVendedor}</option>

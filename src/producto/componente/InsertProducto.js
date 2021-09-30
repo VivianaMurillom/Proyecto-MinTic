@@ -96,6 +96,7 @@ class insertProducto extends React.Component {
                 errors["regProductNombre"] = "Solo letras";
             }
         }
+        
 
         //Precio
         if (!fields["regProductPrecio"]) {
@@ -140,9 +141,16 @@ class insertProducto extends React.Component {
                     precio: e["target"][1].value,
                     descripcion: e["target"][2].value
                 }
+
             );
-            //alert(products[0]["nombre"]+products[0]["precio"]+products[0]["descripcion"]);
-            alert("Producto agregado correctamente");
+            products.map((produ)=>{
+                alert("Producto agregado correctamente!! \n \n"
+                +"Producto: "+produ.nombre+", "
+                +"Precio: "+produ.precio+"\n"
+                +"Descripción: "+produ.descripcion)
+               
+            })
+            
         } else {
             alert("Error al agregar.");
         }
