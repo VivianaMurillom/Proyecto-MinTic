@@ -25,6 +25,8 @@ class AgregarVenta extends React.Component {
 
         super(props)
         this.state = {
+            fields: {},
+            errors: {},
             datos: [{
                 "id": 1,
                 "nombreP": "Pantalones",
@@ -48,7 +50,133 @@ class AgregarVenta extends React.Component {
                 "nombreVendedor": "Cristian"
             }
             ]
+            
         }
+    }
+
+
+    
+    handleValidation() {
+        let fields = this.state.fields;
+        let errors = {};
+        let formIsValid = true;
+
+        //Cliente
+        if (!fields["regClientNombre"]) {
+            formIsValid = false;
+            errors["regClientNombre"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regClientNombre"] !== "undefined") {
+            if (!fields["regClientNombre"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["regClientNombre"] = "Solo letras";
+            }
+        }
+
+        //Numero de documento
+        if (!fields["Numdoc"]) {
+            formIsValid = false;
+            errors["Numdoc"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["Numdoc"] !== "undefined") {
+            if (!fields["Numdoc"].match(/^[0-9]+$/)) {
+                formIsValid = false;
+                errors["Numdoc"] = "Solo números";
+            }
+        }
+        //Productos
+        if (!fields["regProduct"]) {
+            formIsValid = false;
+            errors["regProduct"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regProduct"] !== "undefined") {
+            if (!fields["regProduct"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["regProduct"] = "Solo letras";
+            }
+        }
+
+        //Cantidad
+        if (!fields["regCantidad"]) {
+            formIsValid = false;
+            errors["regCantidad"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regCantidad"] !== "undefined") {
+            if (!fields["regCantidad"].match(/^[0-9]+$/)) {
+                formIsValid = false;
+                errors["regCantidad"] = "Solo números";
+            }
+        }
+        //Total
+        if (!fields["regTotal"]) {
+            formIsValid = false;
+            errors["regTotal"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regTotal"] !== "undefined") {
+            if (!fields["regTotal"].match(/^[0-9]+$/)) {
+                formIsValid = false;
+                errors["regTotal"] = "Solo números";
+            }
+        }
+        //Vendedor
+        if (!fields["regVendedor"]) {
+            formIsValid = false;
+            errors["regVendedor"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regVendedor"] !== "undefined") {
+            if (!fields["regVendedor"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["regVendedor"] = "Solo letras";
+            }
+        }
+
+
+        this.setState({ errors: errors });
+        return formIsValid;
+    }
+
+
+    contactSubmit(e) {
+        e.preventDefault();
+        const products = [];
+
+        if (this.handleValidation()) {
+            products.push(
+                {
+                    nCliente: e["target"][0].value,
+                    ndocument: e["target"][1].value,
+                    producto: e["target"][2].value,
+                    cantidad: e["target"][3].value,
+                    total: e["target"][4].value,
+                    vendedor: e["target"][5].value
+                    
+                }
+            );
+            products.map((produ)=>{
+                alert("Venta realizada correctamente!! \n \n"
+                +"Cliente: "+produ.nCliente+", "
+                +"N° Documento: "+produ.ndocument+"\n"
+                +"Producto: "+produ.producto+", "
+                +"Cantidad: "+produ.cantidad+"\n"
+                +"Vendedor: "+produ.vendedor+", "
+                +"Total: "+produ.total+" ")
+            })
+            
+        } else {
+            alert("Error al agregar.");
+        }
+    }
+
+    handleChange(field, e) {
+        let fields = this.state.fields;
+        fields[field] = e.target.value;
+        this.setState({ fields });
     }
 
     render() {
@@ -60,22 +188,24 @@ class AgregarVenta extends React.Component {
                 <header className="text-center" >
                     <body>
                         <h3>Registrar Venta</h3>
-                        <form class="card text-center mb-2" >
+                        <form class="card text-center mb-2" onSubmit={this.contactSubmit.bind(this)} >
                             <div class="row m-2">
                                 <div class="col">
                                     <label for="inputZip" class="form-label">Nombre de cliente</label>
-                                    <input type="text" class="form-control" id=""></input>
+                                    <input type="text" class="form-control" id="regClientNombre" onChange={this.handleChange.bind(this, "regClientNombre")} value={this.state.fields["regClientNombre"]} required ></input>
+                                    
                                 </div>
                                 <div class="col">
                                     <label for="inputZip" class="form-label">Numero de documento</label>
-                                    <input type="number" class="form-control" id=""></input>
+                                    <input type="number" class="form-control" id="Numdoc" onChange={this.handleChange.bind(this, "Numdoc")} value={this.state.fields["Numdoc"]} required></input>
                                 </div>
                                 <div class="col">
                                     <label for="inputState" class="form-label">Producto</label>
-                                    <select id="inputState" class="form-select">
+                                    <select id="inputState" class="form-select" id="regProduct" onChange={this.handleChange.bind(this, "regProduct")} value={this.state.fields["regProduct"]} required >
+                                  
                                         {this.state.datos.map((prod) => {
                                             return (
-                                                <option>{prod.nombreP}</option>
+                                                <option >{prod.nombreP}</option>
                                             )
                                         })}
                                     </select>
@@ -85,7 +215,7 @@ class AgregarVenta extends React.Component {
                                 <div class="col">
 
                                     <label for="inputZip" class="form-label">Cantidad</label>
-                                    <input type="number" class="form-control" id=""></input>
+                                    <input type="number" class="form-control" id="regCantidad" onChange={this.handleChange.bind(this, "regCantidad")} value={this.state.fields["regCantidad"]} required></input>
 
                                 </div>
                                 <div class="col">
@@ -94,8 +224,8 @@ class AgregarVenta extends React.Component {
                                 </div>
                                 <div class="col">
                                     <label for="inputState" class="form-label">Vendedor</label>
-                                    <select id="inputState" class="form-select">
-
+                                    <select id="inputState" class="form-select" id="regVendedor" onChange={this.handleChange.bind(this, "regVendedor")} value={this.state.fields["regVendedor"]} required>
+                                        
                                         {this.state.vendedores.map((vendedor) => {
                                             return (
                                                 <option>{vendedor.nombreVendedor}</option>
@@ -109,9 +239,8 @@ class AgregarVenta extends React.Component {
                             <div class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs">
 
-                                    <button type="submit" onClick={() => {
-                                    alert.show('Oh look, an alert!')
-                                }} class="btn btn-primary mb-2">Guardar</button>
+                                    <button type="submit"
+                                class="btn btn-primary mb-2">Guardar</button>
 
 
                                 </ul>

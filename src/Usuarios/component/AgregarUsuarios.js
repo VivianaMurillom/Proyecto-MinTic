@@ -7,6 +7,85 @@ import ListaUsuarios from '../../Usuarios/component/ListaUsuarios';
 
 class AgregarUsuario extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            fields: {},
+            errors: {},
+            
+        };
+    }
+
+    handleValidation() {
+        let fields = this.state.fields;
+        let errors = {};
+        let formIsValid = true;
+
+        //Nombre
+        if (!fields["regNombreUser"]) {
+            formIsValid = false;
+            errors["regNombreUser"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regNombreUser"] !== "undefined") {
+            if (!fields["regNombreUser"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["regNombreUser"] = "Solo letras";
+            }
+        }
+        
+
+        //rol
+        if (!fields["regRol"]) {
+            formIsValid = false;
+            errors["regRol"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regRol"] !== "undefined") {
+            if (!fields["regRol"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["regRol"] = "Solo letras";
+            }
+        }
+
+       
+
+
+        this.setState({ errors: errors });
+        return formIsValid;
+    }
+
+
+    contactSubmit(e) {
+        e.preventDefault();
+        const products = [];
+
+        if (this.handleValidation()) {
+            products.push(
+                {
+                    nombre: e["target"][0].value,
+                    rol: e["target"][1].value
+                }
+
+            );
+            products.map((produ)=>{
+                alert("Usuario agregado correctamente!! \n \n"
+                +"Usuario: "+produ.nombre+"\n"
+                +"Rol: "+produ.rol)
+               
+            })
+            
+        } else {
+            alert("Error al agregar.");
+        }
+    }
+
+    handleChange(field, e) {
+        let fields = this.state.fields;
+        fields[field] = e.target.value;
+        this.setState({ fields });
+    }
     render() {
         const Usuarios = [{
             "id": 1,
@@ -24,36 +103,28 @@ class AgregarUsuario extends React.Component {
                 <div>
                     <Header />
                 </div>
-                <header className="text-center">
+                <header className="text-center" >
                     <h3>Gestion De Vendedores</h3>
                     <body>
-                        <form >
-                            <div class="col-sm-4">
+                        <form onSubmit={this.contactSubmit.bind(this)} class="m-4">
+                            
+                            <div class="row m-2">
+                                <div class="col">
                                 <label for="" class="form-label">Nombre Comprador</label>
-                                <input type="text" class="form-control" ></input>
-                            </div> <br></br>
-
-                            <div class="col-sm-4">
-                                <label for="inputZip" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" id="">
-                                </input>
+                                    <input type="text" class="form-control" onChange={this.handleChange.bind(this, "regNombreUser")} value={this.state.fields["regNombreUser"]} placeholder="Escriba el usuario" required></input>
+                                    
+                                </div>
+                                <div class="col">
+                                <label for="inputZip" class="form-label" >Rol</label>
+                                    <input type="text" class="form-control"onChange={this.handleChange.bind(this, "regRol")} value={this.state.fields["regRol"]} placeholder="Escriba el rol" required ></input>
+                                </div>
+                            
                             </div>
-
-
-                            <h1> <prod /></h1>
-
-
-                            <aside ></aside>
                             <div>
-
                             </div>
-                            <div className="text-left" >
-                                <button type="submit" class="btn btn-primary" onClick={() => {
-                                    alert.show('Oh look, an alert!')
-                                }}>Guardar</button>
-
+                            <div className="text-left " >
+                                <button type="submit" class="btn btn-primary mt-2" >Guardar</button>
                             </div>
-
                         </form>
 
 
