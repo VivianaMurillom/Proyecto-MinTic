@@ -219,8 +219,8 @@ class AgregarVenta extends React.Component {
 
                                 </div>
                                 <div class="col">
-                                    <label for="inputZip" class="form-label">Precio</label>
-                                    <input type="text" class="form-control" id=""></input>
+                                    <label for="inputZip" class="form-label">Total</label>
+                                    <input type="text" class="form-control" id=""id="regTotal" onChange={this.handleChange.bind(this, "regTotal")} value={this.state.fields["regTotal"]} required></input>
                                 </div>
                                 <div class="col">
                                     <label for="inputState" class="form-label">Vendedor</label>
@@ -239,8 +239,7 @@ class AgregarVenta extends React.Component {
                             <div class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs">
 
-                                    <button type="submit"
-                                class="btn btn-primary mb-2">Guardar</button>
+                                    <button type="submit" class="btn btn-primary mb-2">Guardar</button>
 
 
                                 </ul>
