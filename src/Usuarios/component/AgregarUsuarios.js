@@ -2,36 +2,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from '../../components/Header';
-import ListVendedor from '../../vendedores/component/ListaVendedores';
-import GestVend from './ListaVendedores';
+import ListaUsuarios from '../../Usuarios/component/ListaUsuarios';
+import GestVend from './ListaUsuarios';
 
 
 
-class AgregarVendedor extends React.Component {
+class AgregarUsuario extends React.Component {
 
     render() {
-        const vendedores = [{
+        const Usuarios = [{
             "id": 1,
-            "nombreVendedor": "Manuel"
+            "nombreVendedor": "Manuel",
+            "rol":"administrador"
         },
         {
             "id": 2,
-            "nombreVendedor": "Cristian"
+            "nombreVendedor": "Cristian",
+            "rol":"vendedor"
         }
         ]
         return (
-
-
             <div className="GestVend">
-
-
                 <div>
                     <Header />
                 </div>
-
-                
                 <header className="text-center">
-                <h3>Gestion De Vendedores</h3>
+                    <h3>Gestion De Vendedores</h3>
                     <body>
                         <form >
                             <div class="col-sm-4">
@@ -54,7 +50,9 @@ class AgregarVendedor extends React.Component {
 
                             </div>
                             <div className="text-left" >
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button type="submit" class="btn btn-primary" onClick={() => {
+                                    alert.show('Oh look, an alert!')
+                                }}>Guardar</button>
 
                             </div>
 
@@ -73,24 +71,25 @@ class AgregarVendedor extends React.Component {
                                 </ul>
                             </div>
                             <div class="card-body">
-                                
-        <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Vendedor</th>
-                        <th scope="col">Actualizar</th>
-                        <th scope="col">Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
 
-                                {vendedores.map((vendedores) => 
-                                (<ListVendedor vendedores={vendedores} />))}
- </tbody>
-            </table>
-        </div>
+                                <div class="container">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Rol</th>
+                                                <th scope="col">Usuario</th>
+                                                <th scope="col">Actualizar</th>
+                                                <th scope="col">Eliminar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {Usuarios.map((usuarios) =>
+                                                (<ListaUsuarios usuarios={usuarios} />))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -109,4 +108,4 @@ class AgregarVendedor extends React.Component {
 
 }
 
-export default AgregarVendedor;
+export default AgregarUsuario;

@@ -13,7 +13,7 @@ const ventass = [{
     "cantidad": 5,
     "nombreVendedor": "Cristian",
     "precio": 15000
-},{
+}, {
     "id": 2,
     "nombreComprador": "Cristian",
     "producto": "Camisas",
@@ -51,24 +51,12 @@ class AgregarVenta extends React.Component {
                 "nombreVendedor": "Cristian"
             }
             ]
-
         }
-
     }
 
-
-
-
-
-
     render() {
-
         return (
-
-
             <div className="GestVend">
-
-
                 <div>
                     <Header />
                 </div>
@@ -124,7 +112,9 @@ class AgregarVenta extends React.Component {
                             <div class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs">
 
-                                    <button type="submit" onClick={handleClick} class="btn btn-primary mb-2">Guardar</button>
+                                    <button type="submit" onClick={() => {
+                                    alert.show('Oh look, an alert!')
+                                }} class="btn btn-primary mb-2">Guardar</button>
 
 
                                 </ul>
@@ -144,30 +134,30 @@ class AgregarVenta extends React.Component {
                                     </ul>
                                 </div>
                                 <div class="card-body">
-                                    
-        <div class="container">
-        
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Comprador</th>
-                    <th scope="col">Nombre Producto</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Vendedor</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Actualizar</th>
-                    <th scope="col">Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-               
-                        
-                                    {ventass.map((ventas) => (<GestVend ventas={ventas} />))}
-                                 
-                                    </tbody>
-        </table>
-    </div>
+
+                                    <div class="container">
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Comprador</th>
+                                                    <th scope="col">Nombre Producto</th>
+                                                    <th scope="col">Cantidad</th>
+                                                    <th scope="col">Vendedor</th>
+                                                    <th scope="col">Total</th>
+                                                    <th scope="col">Actualizar</th>
+                                                    <th scope="col">Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+
+                                                {ventass.map((ventas) => (<GestVend ventas={ventas} />))}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
 
