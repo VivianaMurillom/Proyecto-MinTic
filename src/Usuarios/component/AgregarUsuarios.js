@@ -73,8 +73,8 @@ class AgregarUsuario extends React.Component {
             );
             products.map((produ)=>{
                 alert("Usuario agregado correctamente!! \n \n"
-                +"Producto: "+produ.nombre+", "
-                +"Precio: "+produ.rol)
+                +"Usuario: "+produ.nombre+"\n"
+                +"Rol: "+produ.rol)
                
             })
             
@@ -118,7 +118,7 @@ class AgregarUsuario extends React.Component {
                                 </div>
                                 <div class="col">
                                 <label for="inputZip" class="form-label" >Rol</label>
-                                    <input type="number" class="form-control"onChange={this.handleChange.bind(this, "regRol")} value={this.state.fields["regRol"]} placeholder="Escriba el rol" required ></input>
+                                    <input type="text" class="form-control"onChange={this.handleChange.bind(this, "regRol")} value={this.state.fields["regRol"]} placeholder="Escriba el rol" required ></input>
                                 </div>
                             
                             </div>
