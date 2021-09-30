@@ -21,6 +21,7 @@ class App extends React.Component {
                     <Route path="/listaProducts" component={<Lista_Productos products={products} />} />
                     <Route path="/gusuarios" component={AgregarUsuario} />
                     <Route path="/pag" component={AgregarVenta} products={this.props.store} />
+                    
                 </Switch>
             </BrowserRouter>
         );
