@@ -1,4 +1,5 @@
 const Producto=({producto})=>{
+  
     return(
       <div className="p-1 col">
         <div className="card" style={{width:'9rem'}}>

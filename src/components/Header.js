@@ -8,6 +8,7 @@ import User from '../img/icon-user.svg';
 
 class Header extends React.Component{
     render(){
+        console.log(this.props.products)
         return (
             <div className="container-fluid">
                 <div className="row justify-content-center">
@@ -33,7 +34,10 @@ class Header extends React.Component{
                                 <Link to="/" class="nav-link active">Inicio</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to="/pag" class="nav-link">Gestion de vendedores</Link>
+                                <Link to="/pag" class="nav-link">Gestion de Ventas</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link to="/gusuarios" class="nav-link">Gestion de Usuarios</Link>
                             </li>
                             <li class="nav-item">
                                 <Link to="/login" class="nav-link">Login</Link>

@@ -1,12 +1,16 @@
 
 import React from "react";
 import './list.css';
-//import {  Card,Button,Container,Row } from 'react-bootstrap';
 import Producto from './Productos';
 class Lista_Productos extends React.Component{
-     
-    
+ 
+
+
 render(){
+    
+
+    
+
     const datos=
     [{
         "id": 1,
@@ -66,35 +70,17 @@ render(){
         "cantidad": 2,
         "precio": 10000,
         "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
-    },
-    {
-        "id": 2,
-        "nombreP": "Camisas",
-        "cantidad": 2,
-        "precio": 10000,
-        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
-    },
-    {
-        "id": 2,
-        "nombreP": "Camisas",
-        "cantidad": 2,
-        "precio": 10000,
-        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
-    },
-    {
-        "id": 2,
-        "nombreP": "Camisas",
-        "cantidad": 2,
-        "precio": 10000,
-        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
     }];
+
 return(
+    
+        // datos.map((producto)=>(<option> {producto.nombreP}</option>))
     <div className="row">
+        
         { datos.map((producto)=>(
         <Producto producto={producto} />))}
     </div>
           
 );
-}
-} 
+} }
 export default Lista_Productos
