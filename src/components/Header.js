@@ -34,10 +34,10 @@ class Header extends React.Component{
                                 <Link to="/" class="nav-link active">Inicio</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to="/pag" class="nav-link">Gestion de ventas</Link>
+                                <Link to="/pag" class="nav-link">Gestion de Ventas</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to="/gusuarios" class="nav-link">Gestion de vendedores</Link>
+                                <Link to="/gusuarios" class="nav-link">Gestion de Usuarios</Link>
                             </li>
                             <li class="nav-item">
                                 <Link to="/login" class="nav-link">Login</Link>
