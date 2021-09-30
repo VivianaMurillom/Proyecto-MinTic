@@ -3,8 +3,6 @@ import React from "react";
 import Header from '../../components/Header';
 import ListaVentas from './ListaVentas'
 
-
-
 const ventass = [{
     "id": 1,
     "nombreComprador": "Cristian",

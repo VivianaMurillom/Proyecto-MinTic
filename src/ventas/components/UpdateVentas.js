@@ -1,4 +1,5 @@
 import './ListaVentas.css'
+import '../../ventas/components/ListaVentas.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 
@@ -15,14 +16,14 @@ const ventas = [{
     "producto": "Camiseta",
     "cantidad": 5,
     "nombreVendedor": "Manuel",
+    "nombreVendedor": "Manuel Messi",
+
     "precio": 15000
 }]
 function UpdateVentas() {
     return (
         <div className="GestVend">
             <header className="GestVend-header">
-
-
                 <body>
                     <header>
 
@@ -31,8 +32,6 @@ function UpdateVentas() {
                         <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
 
                     </header>
-
-
                     <section>
 
                         <aside id="izq"></aside>
@@ -56,7 +55,8 @@ function UpdateVentas() {
                                             return (
                                                 <option>{ventas.nombreVendedor}</option>
                                             )
-                                        })}
+                                        })
+                                        }
                                     </select>
                                 </div>
                                 <div class="col-md-6">
@@ -66,9 +66,18 @@ function UpdateVentas() {
                                 <div class="col-6">
                                     <label for="inputAddress" class="form-label">Vendedor</label>
                                     <select id="inputState" class="form-select">
-                                        {ventas.map((pro) => {
+                                        {ventas.map((pro) => (                                           
+                                            <option>{ventas.producto}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                             
+                                <div class="col-md-6">
+                                    <label for="" class="form-label">Vendedor</label>
+                                    <select id="inputState" class="form-select">
+                                        {ventas.map((vent) => {
                                             return (
-                                                <option>{ventas.producto}</option>
+                                                <option>{vent.nombreVendedor}</option>
                                             )
                                         })}
                                     </select>

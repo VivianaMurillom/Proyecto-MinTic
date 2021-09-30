@@ -2,7 +2,7 @@ import React from "react";
 import home from "../shared/home";
 import Login from '../components/Login';
 import AgregarVenta from '../ventas/components/AgregarVentas';
-import UpdateVend from '../components/UpdateVend';
+import UpdateVend from '../Usuarios/component/UpdateVend';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Lista_Productos from '../producto/componente/lista-productos';
 import AgregarUsuario from "../Usuarios/component/AgregarUsuarios";
