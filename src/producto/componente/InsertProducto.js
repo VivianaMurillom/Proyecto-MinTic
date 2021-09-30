@@ -6,6 +6,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../../components/Header';
 import List from './lista-productos';
+import AdminLista_Products from './AdminLista_ Products';
 
 class insertProducto extends React.Component {
 
@@ -15,6 +16,66 @@ class insertProducto extends React.Component {
         this.state = {
             fields: {},
             errors: {},
+            datos:
+    [{
+        "id": 1,
+        "nombreP": "Pantalones",
+        "cantidad": 3,
+        "precio": 15000,
+        "image":"https://m.media-amazon.com/images/I/61qMt8YrVtL._AC_UY445_.jpg"
+        
+    },
+    {
+        "id": 2,
+        "nombreP": "Camisas",
+        "cantidad": 2,
+        "precio": 10000,
+        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
+    },
+    {
+        "id": 1,
+        "nombreP": "Pantalones",
+        "cantidad": 3,
+        "precio": 15000,
+        "image":"https://m.media-amazon.com/images/I/61qMt8YrVtL._AC_UY445_.jpg"
+        
+    },
+    {
+        "id": 2,
+        "nombreP": "Camisas",
+        "cantidad": 2,
+        "precio": 10000,
+        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
+    },
+    {
+        "id": 1,
+        "nombreP": "Pantalones",
+        "cantidad": 3,
+        "precio": 15000,
+        "image":"https://m.media-amazon.com/images/I/61qMt8YrVtL._AC_UY445_.jpg"
+        
+    },
+    {
+        "id": 2,
+        "nombreP": "Camisas",
+        "cantidad": 2,
+        "precio": 10000,
+        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
+    },
+    {
+        "id": 2,
+        "nombreP": "Camisas",
+        "cantidad": 2,
+        "precio": 10000,
+        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
+    },
+    {
+        "id": 2,
+        "nombreP": "Camisas",
+        "cantidad": 2,
+        "precio": 10000,
+        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
+    }]
         };
     }
 
@@ -158,9 +219,49 @@ class insertProducto extends React.Component {
                         </div>
                     </div>
                 </div>
+
+                <section>
+                            <div class="card mt-3">
+                                <div class="card-header" >
+                                    <ul class="nav nav-tabs card-header-tabs">
+
+                                        <h3 >Lista De Productos</h3>
+
+
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+
+                                    <div class="container">
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Nombre Producto</th>
+                                                    <th scope="col">Cantidad</th>
+                                                    <th scope="col">Precio</th>
+                                                    <th scope="col">Actualizar</th>
+                                                    <th scope="col">Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            {this.state.datos.map((prod) => (<AdminLista_Products prod={prod} />))}
+                                              
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+
             </div>
         );
     }
 }
+
 
 export default insertProducto;
