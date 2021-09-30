@@ -1,4 +1,4 @@
-import '../ventas/components/ListaVentas.css'
+import '../../ventas/components/ListaVentas.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 
@@ -6,13 +6,7 @@ function UpdateVend() {
     return (
         <div className="GestVend">
             <header className="GestVend-header">
-
-
                 <body>
-
-
-
-
                     <header>
 
                         <div id="logo"></div>
@@ -20,8 +14,6 @@ function UpdateVend() {
                         <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
 
                     </header>
-
-
                     <section>
 
                         <aside id="izq"></aside>

@@ -3,8 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from '../../components/Header';
 import ListaUsuarios from '../../Usuarios/component/ListaUsuarios';
-import GestVend from './ListaUsuarios';
-
 
 
 class AgregarUsuario extends React.Component {
