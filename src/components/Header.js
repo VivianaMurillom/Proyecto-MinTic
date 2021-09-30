@@ -40,8 +40,12 @@ class Header extends React.Component{
                                 <Link to="/gusuarios" class="nav-link">Gestion de Usuarios</Link>
                             </li>
                             <li class="nav-item">
+                                <Link to="/insertProducto" class="nav-link">Gestion de productos</Link>
+                            </li>
+                            <li class="nav-item">
                                 <Link to="/login" class="nav-link">Login</Link>
                             </li>
+                            
                         </ul>
                     </div>
                 </div>
