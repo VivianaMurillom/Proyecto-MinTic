@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../../components/Header';
 import List from './lista-productos';
 import AdminLista_Products from './AdminLista_ Products';
+import Alert from '../../components/Alert';
 
 const products = [{
     "id": 1,
@@ -31,7 +32,7 @@ class insertProducto extends React.Component {
         this.state = {
             fields: {},
             errors: {},
-           
+           alerta: ""
         };
     }
 
@@ -43,13 +44,13 @@ class insertProducto extends React.Component {
         //Nombre
         if (!fields["regProductNombre"]) {
             formIsValid = false;
-            errors["regProductNombre"] = "Campo obligatorio";
+            errors["regProductNombre"] = "Campo obligatorio.";
         }
 
         if (typeof fields["regProductNombre"] !== "undefined") {
             if (!fields["regProductNombre"].match(/^[a-zA-Z ]+$/)) {
                 formIsValid = false;
-                errors["regProductNombre"] = "Solo letras";
+                errors["regProductNombre"] = "Solo letras.";
             }
         }
         
@@ -57,32 +58,32 @@ class insertProducto extends React.Component {
         //Precio
         if (!fields["regProductPrecio"]) {
             formIsValid = false;
-            errors["regProductPrecio"] = "Campo obligatorio";
+            errors["regProductPrecio"] = "Campo obligatorio.";
         }
 
         if (typeof fields["regProductPrecio"] !== "undefined") {
             if (!fields["regProductPrecio"].match(/^[0-9]+$/)) {
                 formIsValid = false;
-                errors["regProductPrecio"] = "Solo números";
+                errors["regProductPrecio"] = "Solo números desde 0 en adelante.";
             }
         }
         //Cantidad
-        if (!fields["regCantidad"]) {
+        if (!fields["regProductCantidad"]) {
             formIsValid = false;
-            errors["regCantidad"] = "Campo obligatorio";
+            errors["regProductCantidad"] = "Campo obligatorio.";
         }
 
-        if (typeof fields["regCantidad"] !== "undefined") {
-            if (!fields["regCantidad"].match(/^[0-9]+$/)) {
+        if (typeof fields["regProductCantidad"] !== "undefined") {
+            if (!fields["regProductCantidad"].match(/^[0-9]+$/)) {
                 formIsValid = false;
-                errors["regCantidad"] = "Solo números";
+                errors["regProductCantidad"] = "Solo números desde 0 en adelante.";
             }
         }
 
         //Descripcion
         if (!fields["regProductDesc"]) {
             formIsValid = false;
-            errors["regProductDesc"] = "Campo obligatorio";
+            errors["regProductDesc"] = "Campo obligatorio.";
         }
 
         if (typeof fields["regProductDesc"] !== "undefined") {
@@ -112,10 +113,9 @@ class insertProducto extends React.Component {
                 }
 
             );
-            
-            
-        } else {
-            alert("Error al agregar.");
+            this.setState({alerta: "success"});
+        }else{
+	        this.setState({alerta: "danger"});
         }
     }
 
@@ -137,8 +137,14 @@ class insertProducto extends React.Component {
                         <div className="col col-md-7 regProducto-content">
                             <div className="col-sm-auto">
                                 <div className="row justify-content-center">
-                                    <div className="col-sm-auto">
+                                <div className="col-sm-auto">
                                         <h3>Agregar Producto</h3>
+                                    </div>
+                                </div>
+                                <div className="row justify-content-center">
+                                    <div className="col-sm-6">
+                                        {this.state.alerta == "success" ? <Alert tipo="success" mensaje="Producto agregado correctamente"/>: ""}
+                                        {this.state.alerta == "danger" ? <Alert tipo="danger" mensaje="Error al agregar el producto"/>: ""}
                                     </div>
                                 </div><br />
                                 <form className="row g-2" onSubmit={this.contactSubmit.bind(this)}>
@@ -167,11 +173,13 @@ class insertProducto extends React.Component {
                                         </div>
                                     </div>
                                     <div className="col-sm-2 position-relative">
-                                        <label for="regCantidad" className="form-label">Cantidad</label>
+                                        <label for="regProductCantidad" className="form-label">Cantidad</label>
                                         <div className="input-group has-validation  justify-content-center">
-                                           <input type="number" onChange={this.handleChange.bind(this, "regCantidad")} value={this.state.fields["regCantidad"]} className="form-control" id="regCantidad" name="regCantidad" aria-describedby="inputGroupPrepend" placeholder="" required />
+                                           <input type="number" onChange={this.handleChange.bind(this, "regProductCantidad")} value={this.state.fields["regProductCantidad"]} className="form-control" id="regProductCantidad" name="regProductCantidad" aria-describedby="inputGroupPrepend" placeholder="" required />
                                         </div>
-                                        
+                                        <div>
+                                            <span style={{ color: "red" }}>{this.state.errors["regProductCantidad"]}</span>
+                                        </div>
                                     </div>
                                     <div className="col-sm-12 position-relative">
                                         <label for="regProductDesc" className="form-label">Descripción</label>
