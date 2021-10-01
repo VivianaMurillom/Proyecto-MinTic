@@ -7,7 +7,7 @@ const Producto=({producto})=>{
           <div className="card-body">
             <h5 className="card-title">{producto.nombreP}</h5>
             <p className="card-text">$ {producto.precio}</p>
-            <button className="btn btn-primary" variant="primary">Editar</button>
+            <button className="btn btn-primary">Comprar</button>
           </div>
         </div>
       </div>
