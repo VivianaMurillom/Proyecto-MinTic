@@ -1,5 +1,6 @@
 import './ListaVentas.css';
 import React, { useState } from "react";
+import UpdateVentas from './UpdateVentas';
 import { Link } from "react-router-dom";
 const ListaVentas = ({ ventas }) => {
     const  [ value , setValue ]  = useState (1);
@@ -10,36 +11,36 @@ const ListaVentas = ({ ventas }) => {
         newList.map((newVenta)=>{
             ventas.push({
                 id: newVenta.id,
-                nombreP: newVenta.producto,
+                producto: newVenta.producto,
                 cantidad: newVenta.cantidad,
-                vendedor: newVenta.nombreVendedor,
-                total:newVenta.total
+                nombreVendedor: newVenta.nombreVendedor,
+                nombreComprador: newVenta.nombreComprador,
+                total:newVenta.total,
             })
         })
         setValue( ( value +  1 ) )
         console.log("ELIMINADO", idSeleccionado,newList)
     }
-    
+    const UpdateItem=(idSeleccionado)=>{
+        const lista = ventas.filter((item) => item.id == idSeleccionado);   
+         <UpdateVentas  info = {lista} />  
+        setValue( ( value +  1 ) )
+    }
     return (
-        ventas.map((venta) => {
-        return (
+        ventas.map((vent) => (    
             <tr>
             <th scope="row">#</th>
-            <td>{venta.nombreComprador}</td>
-            <td>{venta.producto}</td>
-            <td>{venta.cantidad}</td>
-            <td>{venta.nombreVendedor}</td>
-            <td>{venta.total}</td>
-
-            <td><Link to="/updateVentas" ><button type="button" class="btn btn-warning" >Editar</button></Link></td>
-            <td><button type="button"  class="btn btn-danger" onClick={() => EliminarItem(venta.id)}> X </button></td>
+            <td>{vent.nombreComprador}</td>
+            <td>{vent.producto}</td>
+            <td>{vent.cantidad}</td>
+            <td>{vent.nombreVendedor}</td>
+            <td>{vent.total}</td>
+            <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(vent.id)}> X </button></td>  
+            <td><Link to="/updateVentas" ><button className="btn btn-warning" onClick={()=>UpdateItem(vent.id)}>Editar</button></Link></td>
             </tr>
-        )})
+        ))
+        
     )
-
-
-
-
     
 }
 export default ListaVentas;
