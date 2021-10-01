@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 const AdminLista_Products = ({ prod }) => {
     const  [ value , setValue ]  = useState ( 1 ) ;
