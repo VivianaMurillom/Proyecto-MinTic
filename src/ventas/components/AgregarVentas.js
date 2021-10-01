@@ -18,6 +18,7 @@ const ventass = [{
     "nombreVendedor": "Manuel",
     "precio": 15000
 }]
+const listventas=[]
 
 class AgregarVenta extends React.Component {
 
@@ -144,10 +145,10 @@ class AgregarVenta extends React.Component {
 
     contactSubmit(e) {
         e.preventDefault();
-        const products = [];
+      // const products = [];
 
         if (this.handleValidation()) {
-            products.push(
+            listventas.push(
                 {
                     nCliente: e["target"][0].value,
                     ndocument: e["target"][1].value,
@@ -155,10 +156,8 @@ class AgregarVenta extends React.Component {
                     cantidad: e["target"][3].value,
                     total: e["target"][4].value,
                     vendedor: e["target"][5].value
-                    
-                }
-            );
-            products.map((produ)=>{
+                })
+                listventas.map((produ)=>{
                 alert("Venta realizada correctamente!! \n \n"
                 +"Cliente: "+produ.nCliente+", "
                 +"N° Documento: "+produ.ndocument+"\n"
@@ -166,7 +165,9 @@ class AgregarVenta extends React.Component {
                 +"Cantidad: "+produ.cantidad+"\n"
                 +"Vendedor: "+produ.vendedor+", "
                 +"Total: "+produ.total+" ")
+                
             })
+            //this.setState=({listventas:products});
             
         } else {
             alert("Error al agregar.");
@@ -278,7 +279,7 @@ class AgregarVenta extends React.Component {
                                             <tbody>
 
 
-                                                {ventass.map((ventas) => (<ListaVentas ventas={ventas} />))}
+                                                {listventas.map((venta) => (<ListaVentas ventas={venta} />))}
 
                                             </tbody>
                                         </table>
