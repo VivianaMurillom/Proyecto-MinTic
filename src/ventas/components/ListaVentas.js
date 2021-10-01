@@ -1,39 +1,47 @@
+import './ListaVentas.css';
 import React, { useState } from "react";
+import UpdateVentas from './UpdateVentas';
 import { Link } from "react-router-dom";
-const ListaVentas = ({ venta }) => {
-    const  [ value , setValue ]  = useState ( 0 ) ;
+const ListaVentas = ({ ventas }) => {
+    const  [ value , setValue ]  = useState (1);
+
     const EliminarItem = idSeleccionado => {
-        const newList = venta.filter((item) => item.id !== idSeleccionado)
-        venta.splice(0, venta.length);
-        newList.map((newPro) => {
-            venta.push({
-                nombreComprador: newPro.nombreComprador,
-                ndocument: newPro.ndocument,
-                producto: newPro.producto,
-                cantidad: newPro.cantidad,
-                total: newPro.total,
-                nombreVendedor: newPro.nombreVendedor
-                
+        const newList = ventas.filter((item) => item.id !== idSeleccionado)
+        ventas.splice(0, ventas.length);
+        newList.map((newVenta)=>{
+            ventas.push({
+                id: newVenta.id,
+                producto: newVenta.producto,
+                cantidad: newVenta.cantidad,
+                nombreVendedor: newVenta.nombreVendedor,
+                nombreComprador: newVenta.nombreComprador,
+                total:newVenta.total,
             })
         })
-        setValue((value + 1))
-        console.log("ELIMINADO", idSeleccionado, newList)
+        setValue( ( value +  1 ) )
+        console.log("ELIMINADO", idSeleccionado,newList)
+    }
+    const UpdateItem=(idSeleccionado)=>{
+        const lista = ventas.filter((item) => item.id == idSeleccionado);   
+         <UpdateVentas  info = {lista} />  
+        setValue( ( value +  1 ) )
     }
     return (
-        venta.map((ventas) => {
-            return (
-                <tr>
-                    <th scope="row">#</th>
-                    <td>{ventas.nombreComprador}</td>
-                    <td>{ventas.producto}</td>
-                    <td>{ventas.cantidad}</td>
-                    <td>{ventas.nombreVendedor}</td>
-                    <td>{ventas.total}</td>
-                    <td><Link to="/updateVentas" ><button type="button" class="btn btn-warning" >Editar</button></Link></td>
-                    <td><button class="btn btn-danger" onClick={() => EliminarItem(ventas.id)}>Eliminar</button></td>
-                </tr>)
-        }
-        ));
+        ventas.map((vent) => (    
+            <tr>
+            <th scope="row">#</th>
+            <td>{vent.nombreComprador}</td>
+            <td>{vent.producto}</td>
+            <td>{vent.cantidad}</td>
+            <td>{vent.nombreVendedor}</td>
+            <td>{vent.total}</td>
+            <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(vent.id)}> X </button></td>  
+            <td><Link to="/updateVentas" ><button className="btn btn-warning" onClick={()=>UpdateItem(vent.id)}>Editar</button></Link></td>
+            </tr>
+        ))
+        
+    )
+    
 }
 export default ListaVentas;
 

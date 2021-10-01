@@ -271,10 +271,7 @@ class AgregarVenta extends React.Component {
                                                 </tr>
                                             </thead>
                                             <tbody>
-
-
-                                             <ListaVentas venta={listventas} />
-
+                                             <ListaVentas ventas={listventas} />
                                             </tbody>
                                         </table>
                                     </div>
