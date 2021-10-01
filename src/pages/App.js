@@ -8,6 +8,7 @@ import AgregarUsuario from "../Usuarios/component/AgregarUsuarios";
 import insertProduct from '../producto/componente/InsertProducto';
 import UpdateVentas from '../ventas/components/UpdateVentas';
 import UpdateProd from "../producto/componente/UpdateProd";
+import Carrito from "../carrito/compoments/carrito";
 class App extends React.Component{
      
 render(){
@@ -22,6 +23,7 @@ return(
     <Route path="/updateVentas" component={UpdateVentas} />
     <Route path="/updateProd" component={UpdateProd} />
     <Route path="/pag" component={AgregarVenta} products={this.props.store} />
+    <Route path="/carrito" component={Carrito} />
     </Switch>
     </BrowserRouter>
 );
