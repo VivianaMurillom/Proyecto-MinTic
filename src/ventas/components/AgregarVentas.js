@@ -157,16 +157,7 @@ class AgregarVenta extends React.Component {
                     total: e["target"][4].value,
                     vendedor: e["target"][5].value
                 })
-                listventas.map((produ)=>{
-                alert("Venta realizada correctamente!! \n \n"
-                +"Cliente: "+produ.nCliente+", "
-                +"N° Documento: "+produ.ndocument+"\n"
-                +"Producto: "+produ.producto+", "
-                +"Cantidad: "+produ.cantidad+"\n"
-                +"Vendedor: "+produ.vendedor+", "
-                +"Total: "+produ.total+" ")
                 
-            })
             //this.setState=({listventas:products});
             
         } else {

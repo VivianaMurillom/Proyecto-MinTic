@@ -8,6 +8,21 @@ import Header from '../../components/Header';
 import List from './lista-productos';
 import AdminLista_Products from './AdminLista_ Products';
 
+const products = [{
+    "id": 1,
+    "nombreP": "Pantalones",
+    "cantidad": 3,
+    "precio": 15000,
+    "image":"https://m.media-amazon.com/images/I/61qMt8YrVtL._AC_UY445_.jpg"
+    
+},
+{
+    "id": 2,
+    "nombreP": "Camisas",
+    "cantidad": 2,
+    "precio": 10000,
+    "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
+}];
 class insertProducto extends React.Component {
 
     constructor(props) {
@@ -16,66 +31,7 @@ class insertProducto extends React.Component {
         this.state = {
             fields: {},
             errors: {},
-            datos:
-    [{
-        "id": 1,
-        "nombreP": "Pantalones",
-        "cantidad": 3,
-        "precio": 15000,
-        "image":"https://m.media-amazon.com/images/I/61qMt8YrVtL._AC_UY445_.jpg"
-        
-    },
-    {
-        "id": 2,
-        "nombreP": "Camisas",
-        "cantidad": 2,
-        "precio": 10000,
-        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
-    },
-    {
-        "id": 1,
-        "nombreP": "Pantalones",
-        "cantidad": 3,
-        "precio": 15000,
-        "image":"https://m.media-amazon.com/images/I/61qMt8YrVtL._AC_UY445_.jpg"
-        
-    },
-    {
-        "id": 2,
-        "nombreP": "Camisas",
-        "cantidad": 2,
-        "precio": 10000,
-        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
-    },
-    {
-        "id": 1,
-        "nombreP": "Pantalones",
-        "cantidad": 3,
-        "precio": 15000,
-        "image":"https://m.media-amazon.com/images/I/61qMt8YrVtL._AC_UY445_.jpg"
-        
-    },
-    {
-        "id": 2,
-        "nombreP": "Camisas",
-        "cantidad": 2,
-        "precio": 10000,
-        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
-    },
-    {
-        "id": 2,
-        "nombreP": "Camisas",
-        "cantidad": 2,
-        "precio": 10000,
-        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
-    },
-    {
-        "id": 2,
-        "nombreP": "Camisas",
-        "cantidad": 2,
-        "precio": 10000,
-        "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
-    }]
+           
         };
     }
 
@@ -110,6 +66,18 @@ class insertProducto extends React.Component {
                 errors["regProductPrecio"] = "Solo números";
             }
         }
+        //Cantidad
+        if (!fields["regCantidad"]) {
+            formIsValid = false;
+            errors["regCantidad"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["regCantidad"] !== "undefined") {
+            if (!fields["regCantidad"].match(/^[0-9]+$/)) {
+                formIsValid = false;
+                errors["regCantidad"] = "Solo números";
+            }
+        }
 
         //Descripcion
         if (!fields["regProductDesc"]) {
@@ -132,24 +100,19 @@ class insertProducto extends React.Component {
 
     contactSubmit(e) {
         e.preventDefault();
-        const products = [];
+        
 
         if (this.handleValidation()) {
             products.push(
                 {
-                    nombre: e["target"][0].value,
-                    precio: e["target"][1].value,
-                    descripcion: e["target"][2].value
+                    nombreP: e["target"][0].value,
+                    cantidad: e["target"][1].value,
+                    precio: e["target"][2].value,
+                    descripcion: e["target"][3].value
                 }
 
             );
-            products.map((produ)=>{
-                alert("Producto agregado correctamente!! \n \n"
-                +"Producto: "+produ.nombre+", "
-                +"Precio: "+produ.precio+"\n"
-                +"Descripción: "+produ.descripcion)
-               
-            })
+            
             
         } else {
             alert("Error al agregar.");
@@ -191,7 +154,7 @@ class insertProducto extends React.Component {
                                             <span style={{ color: "red" }}>{this.state.errors["regProductNombre"]}</span>
                                         </div>
                                     </div>
-                                    <div className="col-sm-6 position-relative">
+                                    <div className="col-sm-4 position-relative">
                                         <label for="regProductPrecio" className="form-label">Precio</label>
                                         <div className="input-group has-validation  justify-content-center">
                                             <span className="input-group-text" id="inputGroupPrepend">
@@ -202,6 +165,13 @@ class insertProducto extends React.Component {
                                         <div>
                                             <span style={{ color: "red" }}>{this.state.errors["regProductPrecio"]}</span>
                                         </div>
+                                    </div>
+                                    <div className="col-sm-2 position-relative">
+                                        <label for="regCantidad" className="form-label">Cantidad</label>
+                                        <div className="input-group has-validation  justify-content-center">
+                                           <input type="number" onChange={this.handleChange.bind(this, "regCantidad")} value={this.state.fields["regCantidad"]} className="form-control" id="regCantidad" name="regCantidad" aria-describedby="inputGroupPrepend" placeholder="" required />
+                                        </div>
+                                        
                                     </div>
                                     <div className="col-sm-12 position-relative">
                                         <label for="regProductDesc" className="form-label">Descripción</label>
@@ -255,7 +225,7 @@ class insertProducto extends React.Component {
                                             </thead>
                                             <tbody>
 
-                                            {this.state.datos.map((prod) => (<AdminLista_Products prod={prod} />))}
+                                            {products.map((prod) => (<AdminLista_Products prod={prod} />))}
                                               
 
                                             </tbody>
