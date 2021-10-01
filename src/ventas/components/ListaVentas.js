@@ -1,21 +1,46 @@
 import './ListaVentas.css';
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-const listaVentas = ({ ventas }) => {
-  
-    return (
-        <tr>
-        <th scope="row">#</th>
-        <td>{ventas.nombreComprador}</td>
-        <td>{ventas.producto}</td>
-        <td>{ventas.cantidad}</td>
-        <td>{ventas.nombreVendedor}</td>
-        <td>{ventas.total}</td>
+const ListaVentas = ({ ventas }) => {
+    const  [ value , setValue ]  = useState (1);
 
-        <td><Link to="/updateVentas" ><button type="button" class="btn btn-warning" >Editar</button></Link></td>
-        <td><button type="button" key={ventas.id} class="btn btn-danger"> X </button></td>
-        </tr>
-    );
+    const EliminarItem = idSeleccionado => {
+        const newList = ventas.filter((item) => item.id !== idSeleccionado)
+        ventas.splice(0, ventas.length);
+        newList.map((newVenta)=>{
+            ventas.push({
+                id: newVenta.id,
+                nombreP: newVenta.producto,
+                cantidad: newVenta.cantidad,
+                vendedor: newVenta.nombreVendedor,
+                total:newVenta.total
+            })
+        })
+        setValue( ( value +  1 ) )
+        console.log("ELIMINADO", idSeleccionado,newList)
+    }
+    
+    return (
+        ventas.map((venta) => {
+        return (
+            <tr>
+            <th scope="row">#</th>
+            <td>{venta.nombreComprador}</td>
+            <td>{venta.producto}</td>
+            <td>{venta.cantidad}</td>
+            <td>{venta.nombreVendedor}</td>
+            <td>{venta.total}</td>
+
+            <td><Link to="/updateVentas" ><button type="button" class="btn btn-warning" >Editar</button></Link></td>
+            <td><button type="button"  class="btn btn-danger" onClick={() => EliminarItem(venta.id)}> X </button></td>
+            </tr>
+        )})
+    )
+
+
+
+
+    
 }
-export default listaVentas;
+export default ListaVentas;
 

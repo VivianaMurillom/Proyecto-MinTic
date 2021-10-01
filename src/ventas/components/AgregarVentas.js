@@ -273,7 +273,7 @@ class AgregarVenta extends React.Component {
                                             <tbody>
 
 
-                                                {listventas.map((venta) => (<ListaVentas ventas={venta} />))}
+                                             <ListaVentas venta={listventas} />
 
                                             </tbody>
                                         </table>
@@ -298,16 +298,6 @@ class AgregarVenta extends React.Component {
     }
 
 }
-function handleClick() {
-    console.log("DEBE GUARDAR")
-    const newelement = {
-        "id": 2,
-        "nombreComprador": "asdasds",
-        "producto": "Cristian",
-        "cantidad": 5,
-        "nombreVendedor": "Cristian",
-        "precio": 15000
-    }
-};
+
 
 export default AgregarVenta;
