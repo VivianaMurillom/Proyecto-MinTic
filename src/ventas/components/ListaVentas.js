@@ -5,11 +5,11 @@ const listaVentas = ({ ventas }) => {
   
     return (
         <tr>
-        <th scope="row">{ventas.id}</th>
-        <td>{ventas.nCliente}</td>
+        <th scope="row">#</th>
+        <td>{ventas.nombreComprador}</td>
         <td>{ventas.producto}</td>
         <td>{ventas.cantidad}</td>
-        <td>{ventas.vendedor}</td>
+        <td>{ventas.nombreVendedor}</td>
         <td>{ventas.total}</td>
 
         <td><Link to="/updateVentas" ><button type="button" class="btn btn-warning" >Editar</button></Link></td>

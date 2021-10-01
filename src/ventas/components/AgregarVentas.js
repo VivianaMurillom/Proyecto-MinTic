@@ -3,22 +3,23 @@ import React from "react";
 import Header from '../../components/Header';
 import ListaVentas from './ListaVentas'
 
-const ventass = [{
+const listventas = [{
     "id": 1,
     "nombreComprador": "Diego",
+    "ndocument": 1061789456,
     "producto": "Camisas",
-    "cantidad": 5,
-    "nombreVendedor": "Cristian",
-    "precio": 15000
+    "cantidad": 4,
+    "total": 60000,
+    "nombreVendedor": "Cristian"
 }, {
     "id": 2,
-    "nombreComprador": "Leonardo",
+    "nombreComprador": "Diego",
+    "ndocument": 1061789456,
     "producto": "Pantalones",
-    "cantidad": 5,
-    "nombreVendedor": "Manuel",
-    "precio": 15000
+    "cantidad": 2,
+    "total": 30000,
+    "nombreVendedor": "Manuel"
 }]
-const listventas=[]
 
 class AgregarVenta extends React.Component {
 
@@ -51,12 +52,12 @@ class AgregarVenta extends React.Component {
                 "nombreVendedor": "Cristian"
             }
             ]
-            
+
         }
     }
 
 
-    
+
     handleValidation() {
         let fields = this.state.fields;
         let errors = {};
@@ -145,21 +146,23 @@ class AgregarVenta extends React.Component {
 
     contactSubmit(e) {
         e.preventDefault();
-      // const products = [];
+        // const products = [];
 
         if (this.handleValidation()) {
             listventas.push(
                 {
-                    nCliente: e["target"][0].value,
+                    nombreComprador: e["target"][0].value,
                     ndocument: e["target"][1].value,
                     producto: e["target"][2].value,
                     cantidad: e["target"][3].value,
                     total: e["target"][4].value,
-                    vendedor: e["target"][5].value
+                    nombreVendedor: e["target"][5].value
+
+
                 })
-                
+
             //this.setState=({listventas:products});
-            
+
         } else {
             alert("Error al agregar.");
         }
@@ -185,7 +188,7 @@ class AgregarVenta extends React.Component {
                                 <div class="col">
                                     <label for="inputZip" class="form-label">Nombre de cliente</label>
                                     <input type="text" class="form-control" id="regClientNombre" onChange={this.handleChange.bind(this, "regClientNombre")} value={this.state.fields["regClientNombre"]} required ></input>
-                                    
+
                                 </div>
                                 <div class="col">
                                     <label for="inputZip" class="form-label">Numero de documento</label>
@@ -194,7 +197,7 @@ class AgregarVenta extends React.Component {
                                 <div class="col">
                                     <label for="inputState" class="form-label">Producto</label>
                                     <select id="inputState" class="form-select" id="regProduct" onChange={this.handleChange.bind(this, "regProduct")} value={this.state.fields["regProduct"]} required >
-                                  
+
                                         {this.state.datos.map((prod) => {
                                             return (
                                                 <option >{prod.nombreP}</option>
@@ -212,12 +215,12 @@ class AgregarVenta extends React.Component {
                                 </div>
                                 <div class="col">
                                     <label for="inputZip" class="form-label">Total</label>
-                                    <input type="text" class="form-control" id=""id="regTotal" onChange={this.handleChange.bind(this, "regTotal")} value={this.state.fields["regTotal"]} required></input>
+                                    <input type="text" class="form-control" id="" id="regTotal" onChange={this.handleChange.bind(this, "regTotal")} value={this.state.fields["regTotal"]} required></input>
                                 </div>
                                 <div class="col">
                                     <label for="inputState" class="form-label">Vendedor</label>
                                     <select id="inputState" class="form-select" id="regVendedor" onChange={this.handleChange.bind(this, "regVendedor")} value={this.state.fields["regVendedor"]} required>
-                                        
+
                                         {this.state.vendedores.map((vendedor) => {
                                             return (
                                                 <option>{vendedor.nombreVendedor}</option>
