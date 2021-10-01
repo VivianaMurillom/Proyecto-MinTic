@@ -13,7 +13,7 @@ const listaVentas = ({ ventas }) => {
         <td>{ventas.total}</td>
 
         <td><Link to="/updateVentas" ><button type="button" class="btn btn-warning" >Editar</button></Link></td>
-        <td><button type="button" id={ventas.id} class="btn btn-danger"> X </button></td>
+        <td><button type="button" key={ventas.id} class="btn btn-danger"> X </button></td>
         </tr>
     );
 }
