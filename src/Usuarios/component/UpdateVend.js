@@ -1,7 +1,11 @@
+<<<<<<< HEAD:src/components/UpdateVend.js
 <<<<<<< HEAD
 import './css.css';
 =======
 import '../ventas/components/ListaVentas.css'
+=======
+import '../../ventas/components/ListaVentas.css'
+>>>>>>> 00dbf6ece89f5401f5550d5ef2c8a9f7aadf862f:src/Usuarios/component/UpdateVend.js
 import 'bootstrap/dist/css/bootstrap.css';
 >>>>>>> 59a5067fb574784e33c8c373c678ee2264e64113
 import React from "react";
@@ -10,13 +14,7 @@ function UpdateVend() {
     return (
         <div className="GestVend">
             <header className="GestVend-header">
-
-
                 <body>
-
-
-
-
                     <header>
 
                         <div id="logo"></div>
@@ -24,8 +22,6 @@ function UpdateVend() {
                         <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
 
                     </header>
-
-
                     <section>
 
                         <aside id="izq"></aside>
