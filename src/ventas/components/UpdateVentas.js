@@ -1,6 +1,6 @@
 import './ListaVentas.css'
-import React, { useState,useEffect } from "react";
-
+import React, { useState } from "react";
+import Header from '../../components/Header';
 const ventas = [{
     "id": 1,
     "nombreComprador": "Manuel",
@@ -39,6 +39,9 @@ const UpdateVentas=({info})=> {
     
     return (
         <div className="GestVend">
+            <div>
+                <Header />
+            </div>
             <header className="GestVend-header">
                 <body>
                     <header>
