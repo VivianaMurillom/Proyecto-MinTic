@@ -1,8 +1,23 @@
-import '../../ventas/components/ListaVentas.css'
-import 'bootstrap/dist/css/bootstrap.css';
-import React from "react";
+import React, { useState,useEffect } from "react";
 
-function UpdateVend() {
+const usuarios = [{
+    "id": 1,
+    "nombre": "Manuel",
+    "apellido":"Diaz",
+    "tipo_identificacion":"Cedula",
+    "numero_documento":"123512",
+    "rol":"Vendendor"
+},
+{
+    "id": 2,
+    "nombre": "Juan",
+    "apellido":"Perez",
+    "tipo_identificacion":"Cedula",
+    "numero_documento":"6345323",
+    "rol":"administrador"
+}
+]
+const UpdateVend=({info})=> {
     return (
         <div className="GestVend">
             <header className="GestVend-header">
@@ -25,66 +40,40 @@ function UpdateVend() {
 
 
                             <form class="row g-3">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label for="" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="" value="Manuel "></input>
+                                    <input type="text" class="form-control" value={usuarios[0].nombre} ></input>
 
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label for="" class="form-label">Apellido</label>
-                                    <input type="text" class="form-control" id="" value="Silva" ></input>
+                                    <input type="text" class="form-control" value={usuarios[0].apellido} ></input>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputState" class="form-label">Tipo de documento</label>
-                                    <select id="inputState" class="form-select">
-                                        <option selected>CC</option>
-                                        <option>Documento de identidad</option>
-                                        <option>Pasaporte</option>
+                                    <select id="inputState" class="form-select" >
+                                        <option >Cedula</option>
+                                        <option>Tarjeta de identidad</option>
+                                        <option>cedula extranjera</option>
                                     </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Numero de documento</label>
-                                    <input type="number" class="form-control" id=""></input>
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputAddress" class="form-label">Dirección</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Carrera 5# 123-32">
-                                    </input>
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputAddress2" class="form-label">Address 2</label>
-                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                    </input>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="inputCity" class="form-label">City</label>
-                                    <input type="text" class="form-control" id="inputCity">
-                                    </input>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="inputState" class="form-label">Estado</label>
-                                    <select id="inputState" class="form-select">
-                                        <option selected>Activo</option>
-                                        <option>Inactivo</option>
+                                    <label for="" class="form-label">Numero de documento</label>
+                                    <input type="number" class="form-control"value={usuarios[0].numero_documento}></input>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputState" class="form-label">Rol</label>
+                                    <select id="inputState" class="form-select" >
+                                        <option selected>Administrador</option>
+                                        <option>Vendedor</option>
+                                        <option></option>
                                     </select>
                                 </div>
-                                <div class="col-md-2">
-                                    <label for="inputZip" class="form-label">Zip</label>
-                                    <input type="text" class="form-control" id="inputZip">
-                                    </input>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                                        </input>
-                                        <label class="form-check-label" for="gridCheck">
-                                            Check me out
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Sign in</button>
-                                </div>
+                                
+                               
+                                <div class="col-m4">
+                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                 </div>
                             </form>
 
 
@@ -111,3 +100,5 @@ function UpdateVend() {
     );
 }
 export default UpdateVend;
+
+

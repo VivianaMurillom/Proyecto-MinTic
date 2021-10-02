@@ -233,7 +233,7 @@ class insertProducto extends React.Component {
                                             </thead>
                                             <tbody>
 
-                                            <AdminLista_Products prod={products} />
+                                            {products.map((prod) => (<AdminLista_Products prod={prod} />))}
                                               
 
                                             </tbody>

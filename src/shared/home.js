@@ -19,14 +19,14 @@ function home() {
       </div>
 
 
-      <footer>
-        <div className="row justify-content-center">
-          <div className="col col-sm-3">
-            &copy; Todos los derechos reservados.
-          </div>
+
+      <div className="row justify-content-center">
+        <div className="col col-sm-8">
+          <h4>Footer</h4>
         </div>
-      </footer>
+      </div>
     </div>
   );
 }
+
 export default home;

@@ -4,7 +4,7 @@ const Alerta=({tipo, mensaje}) =>{
     
     const [show, setShow] = useState(true);
     if(show){
-        if(tipo === "success"){
+        if(tipo == "success"){
             return (
             <div>
                 <div className="alert alert-success">
@@ -20,7 +20,7 @@ const Alerta=({tipo, mensaje}) =>{
                 </div>
             </div>
             );
-        }else if(tipo === "danger"){
+        }else if(tipo == "danger"){
             return (
             <div>
                 <div className="alert alert-danger">
@@ -36,7 +36,7 @@ const Alerta=({tipo, mensaje}) =>{
                 </div>
             </div>
             );
-        }else if(tipo === "info"){
+        }else if(tipo == "info"){
             return (
             <div>
                 <div className="alert alert-info">
