@@ -44,13 +44,7 @@ const UpdateVentas=({info})=> {
             </div>
             <header className="GestVend-header">
                 <body>
-                    <header>
-
-                        <div id="logo"></div>
-                        <div id="User" class="redes1"><h6>Admin 1</h6></div>
-                        <div id="icono3" class="redes" ><image src="./User.png" className="rounded mx-auto d-block" alt="..." width="42px"></image></div>
-
-                    </header>
+                   
                     <section>
 
                         <aside id="izq"></aside>
