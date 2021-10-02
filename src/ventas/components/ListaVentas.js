@@ -31,8 +31,9 @@ const ListaVentas = ({ ventas }) => {
             <td>{vent.cantidad}</td>
             <td>{vent.nombreVendedor}</td>
             <td>{vent.total}</td>
-            <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(vent.id)}> X </button></td>  
+            
             <td><Link to="/updateVentas" ><button className="btn btn-warning" >Editar</button></Link></td>
+            <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(vent.id)}> Eliminar </button></td>  
             </tr>
         ))
         
