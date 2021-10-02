@@ -100,3 +100,5 @@ const UpdateVend=({info})=> {
     );
 }
 export default UpdateVend;
+
+

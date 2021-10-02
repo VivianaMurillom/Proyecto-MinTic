@@ -1,7 +1,5 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import UpdateVend from "./UpdateVend";
 const ListaUsuarios = ({ usu }) => {
     const  [ value , setValue ]  = useState (1);
     const EliminarItem = idSeleccionado => {
@@ -20,11 +18,6 @@ const ListaUsuarios = ({ usu }) => {
         setValue( ( value +  1 ) )
         console.log("ELIMINADO", idSeleccionado,newList)
     }
-    const UpdateItem=(idSeleccionado)=>{
-        const lista = usu.filter((item) => item.id == idSeleccionado);   
-         <UpdateVend  info = {lista} />  
-        setValue( ( value +  1 ) )
-    }
     return (
                 usu.map((usuarios)=>(
                     <tr>
@@ -34,7 +27,7 @@ const ListaUsuarios = ({ usu }) => {
                         <td>{usuarios.tipo_identificacion}</td>
                         <td>{usuarios.numero_documento}</td>
                         <td>{usuarios.rol}</td>
-                        <td><Link to="/UpdateVend" ><button className="btn btn-warning" onClick={()=>UpdateItem(usuarios.id)}>Editar</button></Link></td>
+                        <td><button type="button" class="btn btn-warning"><Link to="/UpdateVend">Editar</Link></button></td>
                         <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(usuarios.id)}> X </button></td>  
             
                     </tr>
@@ -42,4 +35,3 @@ const ListaUsuarios = ({ usu }) => {
     );
 }
 export default ListaUsuarios;
-
