@@ -21,7 +21,10 @@ const ListaVentas = ({ ventas }) => {
         setValue( ( value +  1 ) )
         console.log("ELIMINADO", idSeleccionado,newList)
     }
-    
+    const UpdateItem=(idSeleccionado)=>{
+        const lista = ventas.filter((item) => item.id == idSeleccionado);   
+        <UpdateVentas  info = {lista} />  
+    }
     return (
         ventas.map((vent) => (    
             <tr>
@@ -32,11 +35,12 @@ const ListaVentas = ({ ventas }) => {
             <td>{vent.nombreVendedor}</td>
             <td>{vent.total}</td>
             <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(vent.id)}> X </button></td>  
-            <td><Link to="/updateVentas" ><button className="btn btn-warning" >Editar</button></Link></td>
+            <td><Link to="/updateVentas" ><button className="btn btn-warning" onClick={()=>UpdateItem(vent.id)}>Editar</button></Link></td>
             </tr>
         ))
         
-    );
+    )
     
 }
 export default ListaVentas;
+
