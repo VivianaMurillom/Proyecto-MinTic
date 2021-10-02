@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './header.css'; 
-
+import HeaderLogin from "./HeaderLogin";
 import LogoImproTic from '../img/logo-improTic.png';
-import User from '../img/icon-user.svg';
 
 
 class Header extends React.Component{
     render(){
-        console.log(this.props.products)
         return (
             <div className="container-fluid">
                 <div className="row justify-content-center">
@@ -16,12 +14,12 @@ class Header extends React.Component{
                         <div class="row justify-content-between">
                             <div className="col-3">
                                 <div className="p-1 align-content-start">
-                                    <img src={LogoImproTic} className="img-fluid"></img>
+                                    <img src={LogoImproTic} className="img-fluid" id="logoImproTic"></img>
                                 </div>
                             </div>
-                            <div className="col-2">
-                                <div className="p-3 align-content-end">
-                                    <img src={User} className="img-fluid"></img>
+                            <div className="col-3">
+                                <div className="p-3">
+                                    <HeaderLogin/>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +41,7 @@ class Header extends React.Component{
                                 <Link to="/insertProducto" class="nav-link">Gestion de productos</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to="/login" class="nav-link">Login</Link>
+                                <Link to="/login" class="nav-link">Form Login</Link>
                             </li>
                             
                         </ul>
