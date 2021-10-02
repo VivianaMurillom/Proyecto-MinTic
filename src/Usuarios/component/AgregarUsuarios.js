@@ -3,7 +3,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from '../../components/Header';
 import ListaUsuarios from '../../Usuarios/component/ListaUsuarios';
+import Alert from '../../components/Alert';
 
+const Usuarios = [{
+    "id": 1,
+    "nombre": "Manuel",
+    "apellido":"Diaz",
+    "tipo_identificacion":"Cedula",
+    "numero_documento":"123512",
+    "rol":"Vendendor"
+},
+{
+    "id": 2,
+    "nombre": "Juan",
+    "apellido":"Perez",
+    "tipo_identificacion":"Cedula",
+    "numero_documento":"6345323",
+    "rol":"administrador"
+}
+]
 
 class AgregarUsuario extends React.Component {
 
@@ -13,6 +31,7 @@ class AgregarUsuario extends React.Component {
         this.state = {
             fields: {},
             errors: {},
+            alerta: ""
             
         };
     }
@@ -23,29 +42,68 @@ class AgregarUsuario extends React.Component {
         let formIsValid = true;
 
         //Nombre
-        if (!fields["regNombreUser"]) {
+        if (!fields["nombre"]) {
             formIsValid = false;
-            errors["regNombreUser"] = "Campo obligatorio";
+            errors["nombre"] = "Campo obligatorio";
         }
 
-        if (typeof fields["regNombreUser"] !== "undefined") {
-            if (!fields["regNombreUser"].match(/^[a-zA-Z ]+$/)) {
+        if (typeof fields["nombre"] !== "undefined") {
+            if (!fields["nombre"].match(/^[a-zA-Z ]+$/)) {
                 formIsValid = false;
-                errors["regNombreUser"] = "Solo letras";
+                errors["nombre"] = "Solo letras";
             }
         }
         
 
-        //rol
-        if (!fields["regRol"]) {
+        //apellido
+        if (!fields["apellido"]) {
             formIsValid = false;
-            errors["regRol"] = "Campo obligatorio";
+            errors["apellido"] = "Campo obligatorio";
         }
 
-        if (typeof fields["regRol"] !== "undefined") {
-            if (!fields["regRol"].match(/^[a-zA-Z ]+$/)) {
+        if (typeof fields["apellido"] !== "undefined") {
+            if (!fields["apellido"].match(/^[a-zA-Z ]+$/)) {
                 formIsValid = false;
-                errors["regRol"] = "Solo letras";
+                errors["apellido"] = "Solo letras";
+            }
+        }
+
+         //tipo_documento
+         if (!fields["tipo_identificacion"]) {
+            formIsValid = false;
+            errors["tipo_identificacion"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["tipo_identificacion"] !== "undefined") {
+            if (!fields["tipo_identificacion"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["tipo_identificacion"] = "Solo letras";
+            }
+        }
+
+         //documento
+         if (!fields["documento"]) {
+            formIsValid = false;
+            errors["documento"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["documento"] !== "undefined") {
+            if (!fields["documento"].match(/^[0-9 ]+$/)) {
+                formIsValid = false;
+                errors["documento"] = "Solo numeros";
+            }
+        }
+
+          //rol
+          if (!fields["rol"]) {
+            formIsValid = false;
+            errors["rol"] = "Campo obligatorio";
+        }
+
+        if (typeof fields["rol"] !== "undefined") {
+            if (!fields["rol"].match(/^[a-zA-Z ]+$/)) {
+                formIsValid = false;
+                errors["rol"] = "Solo letras";
             }
         }
 
@@ -59,25 +117,22 @@ class AgregarUsuario extends React.Component {
 
     contactSubmit(e) {
         e.preventDefault();
-        const products = [];
+        const lista_usuarios = [];
 
         if (this.handleValidation()) {
-            products.push(
+            lista_usuarios.push(
                 {
                     nombre: e["target"][0].value,
-                    rol: e["target"][1].value
+                    apellido: e["target"][1].value,
+                    tipo_identificacion: e["target"][2].value,
+                    documento: e["target"][3].value,
+                    rol: e["target"][4].value,
                 }
 
             );
-            products.map((produ)=>{
-                alert("Usuario agregado correctamente!! \n \n"
-                +"Usuario: "+produ.nombre+"\n"
-                +"Rol: "+produ.rol)
-               
-            })
-            
-        } else {
-            alert("Error al agregar.");
+            this.setState({alerta: "success"});
+        }else{
+	        this.setState({alerta: "danger"});
         }
     }
 
@@ -87,75 +142,114 @@ class AgregarUsuario extends React.Component {
         this.setState({ fields });
     }
     render() {
-        const Usuarios = [{
-            "id": 1,
-            "nombreVendedor": "Manuel",
-            "rol":"administrador"
-        },
-        {
-            "id": 2,
-            "nombreVendedor": "Cristian",
-            "rol":"vendedor"
-        }
-        ]
+      
         return (
             <div className="GestVend">
                 <div>
                     <Header />
                 </div>
                 <header className="text-center" >
-                    <h3>Gestion De Vendedores</h3>
+                    <h3>Agregar Usuarios</h3>
                     <body>
-                        <form onSubmit={this.contactSubmit.bind(this)} class="m-4">
+                    <div className="row justify-content-center">
+                                    <div className="col-sm-6">
+                                        {this.state.alerta == "success" ? <Alert tipo="success" mensaje="Usuario agregado correctamente"/>: ""}
+                                        {this.state.alerta == "danger" ? <Alert tipo="danger" mensaje="Error al agregar el usuario"/>: ""}
+                                    </div>
+                     </div><br />
+                        <form onSubmit={this.contactSubmit.bind(this)} className="m-4">
                             
-                            <div class="row m-2">
-                                <div class="col">
-                                <label for="" class="form-label">Nombre Comprador</label>
-                                    <input type="text" class="form-control" onChange={this.handleChange.bind(this, "regNombreUser")} value={this.state.fields["regNombreUser"]} placeholder="Escriba el usuario" required></input>
-                                    
+                            <div className="row m-2">
+                                <div className="col">
+                                <label for="nombre" className="form-label">Nombre </label>
+                                    <input type="text" className="form-control" onChange={this.handleChange.bind(this, "nombre")} value={this.state.fields["nombre"]} placeholder="Escriba el usuario" id="nombre" name="nombre" required></input>
+                                    <div>
+                                         <span style={{ color: "red" }}>{this.state.errors["nombre"]}</span>
+                                    </div>   
                                 </div>
-                                <div class="col">
-                                <label for="inputZip" class="form-label" >Rol</label>
-                                    <input type="text" class="form-control"onChange={this.handleChange.bind(this, "regRol")} value={this.state.fields["regRol"]} placeholder="Escriba el rol" required ></input>
+                                <div className="col">
+                                <label for="apellido" className="form-label" >Apellido</label>
+                                    <input type="text" className="form-control"onChange={this.handleChange.bind(this, "apellido")} value={this.state.fields["apellido"]} placeholder="Escriba el apellido" id="apellido" name="apellido" required ></input>
+                                    <div>
+                                         <span style={{ color: "red" }}>{this.state.errors["apellido"]}</span>
+                                    </div>
+                                </div>
+                            
+                                <div className="col">
+                                <label for="tipo_identificacion" className="form-label" >Tipo identificacion</label>
+                                    <select className="form-select" onChange={this.handleChange.bind(this, "tipo_identificacion")} value={this.state.fields["tipo_identificacion"]} id="tipo_identificacion" name="tipo_identificacion">
+                                        <option value="Cedula">Cedula</option>
+                                        <option value="Tarjeta">Tarjeta</option>
+                                        <option value="Cedula Extranjera">Cedula Extranjera</option>
+                                        
+                                    </select>
+                                    <div>
+                                          <span style={{ color: "red" }}>{this.state.errors["tipo_identificacion"]}</span>
+                                     </div>
+                                </div>
+                            </div>
+                            <div className="row m-2">   
+
+                                <div className="col">
+                                <label for="documento" className="form-label" >Cedula</label>
+                                    <input type="text" className="form-control"onChange={this.handleChange.bind(this, "documento")} value={this.state.fields["documento"]} placeholder="Escriba su documento" id="documento" name="documento" required ></input>
+                                    <div>
+                                         <span style={{ color: "red" }}>{this.state.errors["documento"]}</span>
+                                    </div>
+                                </div>
+
+                                
+                                <div className="col">
+                                <label for="rol" className="form-label" >Rol</label>
+                                    <select name="rol" id="rol" className="form-select" onChange={this.handleChange.bind(this, "rol")} value={this.state.fields["rol"]}>
+                                        <option value="Administrador" >Administrador</option>
+                                        <option value="Vendedor" >Vendedor</option>
+                                        
+                                    </select>
+                                    <div>
+                                          <span style={{ color: "red" }}>{this.state.errors["rol"]}</span>
+                                     </div>
+                                
                                 </div>
                             
                             </div>
                             <div>
                             </div>
-                            <div className="text-left " >
-                                <button type="submit" class="btn btn-primary mt-2" >Guardar</button>
+                            <div classNameName="text-left " >
+                                <button type="submit" className="btn btn-primary mt-2" >Guardar</button>
                             </div>
                         </form>
 
 
 
 
-                        <div class="card">
-                            <div class="card-header" >
-                                <ul class="nav nav-tabs card-header-tabs">
+                        <div className="card">
+                            <div className="card-header" >
+                                <ul className="nav nav-tabs card-header-tabs">
 
                                     <h3 >Lista De Vendedores</h3>
 
 
                                 </ul>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
 
-                                <div class="container">
-                                    <table class="table">
+                                <div className="container">
+                                    <table className="table">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Apellido</th>
+                                                <th scope="col">Tipo Documento</th>
+                                                <th scope="col">N° Documento</th>
                                                 <th scope="col">Rol</th>
-                                                <th scope="col">Usuario</th>
                                                 <th scope="col">Actualizar</th>
                                                 <th scope="col">Eliminar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
-                                            {Usuarios.map((usuarios) =>
-                                                (<ListaUsuarios usuarios={usuarios} />))}
+                                        {Usuarios.map((usu) => (<lista_usuarios usu={usu} />))}   
                                         </tbody>
                                     </table>
                                 </div>
