@@ -4,6 +4,7 @@ import '../../ventas/components/ListaVentas.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import Header from '../../components/Header';
+
 import Alert from '../../components/Alert';
 
 class UpdateProd extends React.Component {
@@ -165,6 +166,7 @@ class UpdateProd extends React.Component {
                                             </button>
                                         </div>
                                     </div>
+
                                 </div>
                             </form>
                         </div>
