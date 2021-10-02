@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from "react";
+import Header from "../../components/Header";
 
 const usuarios = [{
     "id": 1,
@@ -22,13 +23,7 @@ const UpdateVend=({info})=> {
         <div className="GestVend">
             <header className="GestVend-header">
                 <body>
-                    <header>
-
-                        <div id="logo"></div>
-                        <div id="User" class="redes1"><h6>Admin 1</h6></div>
-                        <div id="icono3" class="redes" ><image src="./User.png" lass="rounded mx-auto d-block" alt="..." width="42px"></image></div>
-
-                    </header>
+                    <Header/>
                     <section>
 
                         <aside id="izq"></aside>
