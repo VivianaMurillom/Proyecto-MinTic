@@ -1,7 +1,6 @@
-import '../../ventas/components/ListaVentas.css'
-import 'bootstrap/dist/css/bootstrap.css';
-import React from "react";
-const lista_usuarios = [{
+import React, { useState,useEffect } from "react";
+
+const usuarios = [{
     "id": 1,
     "nombre": "Manuel",
     "apellido":"Diaz",
@@ -43,12 +42,12 @@ const UpdateVend=({info})=> {
                             <form class="row g-3">
                                 <div class="col-md-4">
                                     <label for="" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="" value={lista_usuarios[0].nombre} ></input>
+                                    <input type="text" class="form-control" value={usuarios[0].nombre} ></input>
 
                                 </div>
                                 <div class="col-md-4">
                                     <label for="" class="form-label">Apellido</label>
-                                    <input type="text" class="form-control" id="" value={lista_usuarios[1].apellido} ></input>
+                                    <input type="text" class="form-control" value={usuarios[0].apellido} ></input>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputState" class="form-label">Tipo de documento</label>
@@ -60,7 +59,7 @@ const UpdateVend=({info})=> {
                                 </div>
                                 <div class="col-md-4">
                                     <label for="" class="form-label">Numero de documento</label>
-                                    <input type="number" class="form-control" id="" value={lista_usuarios[3].numero_documento}></input>
+                                    <input type="number" class="form-control"value={usuarios[0].numero_documento}></input>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputState" class="form-label">Rol</label>
