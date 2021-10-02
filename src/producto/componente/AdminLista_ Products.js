@@ -25,7 +25,7 @@ const AdminLista_Products = ({ prod }) => {
             <td>{prode.nombreP}</td>
             <td>{prode.cantidad}</td>
             <td>{prode.precio}</td>
-            <td><Link to="/updateProd" ><button type="button" class="btn btn-warning">Editar</button></Link></td>
+            <td><Link to="/updateProd" prod={prode.id}><button type="button" class="btn btn-warning">Editar</button></Link></td>
             <td><button class="btn btn-danger" onClick={() => EliminarItem(prode.id)}>Eliminar</button></td>
         </tr>
     ))
