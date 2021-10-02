@@ -28,7 +28,7 @@ const ListaUsuarios = ({ usu }) => {
                         <td>{usuarios.numero_documento}</td>
                         <td>{usuarios.rol}</td>
                         <td><button type="button" class="btn btn-warning"><Link to="/UpdateVend">Editar</Link></button></td>
-                        <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(usuarios.id)}> X </button></td>  
+                        <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(usuarios.id)}> Eliminar </button></td>  
             
                     </tr>
                 ))
