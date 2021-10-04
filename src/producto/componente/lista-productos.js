@@ -1,6 +1,5 @@
-
 import React from "react";
-import './list.css';
+import './productos.css';
 import Producto from './Productos';
 class Lista_Productos extends React.Component{
  

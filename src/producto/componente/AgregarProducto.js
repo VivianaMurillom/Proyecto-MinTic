@@ -1,3 +1,4 @@
+import './productos.css';
 import iconUser from '../../img/icon-user.svg';
 import iconIng from '../../img/icon-btn-ingresar.svg';
 import React from "react";
@@ -21,7 +22,7 @@ const products = [{
     "precio": 10000,
     "image":"https://contents.mediadecathlon.com/p1786958/k$2b0a8a97ea3b1154f2f3734009451fe2/pantalon-de-montana-y-trekking-viaje-de-hombre-forclaz-travel-100-gris.jpg?&f=452x452"
 }];
-class insertProducto extends React.Component {
+class AgregarProducto extends React.Component {
 
     constructor(props) {
         super(props);
@@ -188,7 +189,7 @@ class insertProducto extends React.Component {
                                         <div className="col-12 card-header">
                                             <div className="d-grid gap-1 d-sm-flex justify-content-center">
                                                 <button type="submit" className="btn btn-primary">
-                                                    <img src={iconIng} className="Login-content-form-btn-icon" id="iconIng" alt="icono boton guardar"/>
+                                                    <img src={iconIng} className="producto-content-form-btn-icon" id="iconIng" alt="icono boton guardar"/>
                                                     Guardar
                                                 </button>
                                             </div>
@@ -198,36 +199,38 @@ class insertProducto extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="row justify-content-center mb-2">
-                        <div className="col col-md-9 regProducto-content">
-                            <div className="card mt-3">
-                                <div className="card-header">
-                                    <div className="row justify-content-center">
-                                        <div className="col-sm-auto">
-                                            <h3>Lista de Productos</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="card-body">
-                                    <div className="container">
-                                        <table className="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Nombre Producto</th>
-                                                    <th scope="col">Cantidad</th>
-                                                    <th scope="col">Precio</th>
-                                                    <th scope="col">Actualizar</th>
-                                                    <th scope="col">Eliminar</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <AdminLista_Products prod={products} />
-                                            </tbody>
-                                        </table>
+                    <div className="row justify-content-center">
+                        <div className="card col-sm-9">
+                            <div className="card-header">
+                                <div className="row justify-content-center">
+                                    <div className="col-sm-auto">
+                                        <h3>Lista de Productos</h3>
                                     </div>
                                 </div>
                             </div>
+                            <div className="table-responsive">
+                                <table className="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col" colSpan="2">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <AdminLista_Products prod={products} />
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="container-sm">
+                    <div className="row justify-content-center">
+                        <div className="col col-sm-3">
+                            &copy; Todos los derechos reservados.
                         </div>
                     </div>
                 </div>
@@ -236,5 +239,4 @@ class insertProducto extends React.Component {
     }
 }
 
-
-export default insertProducto;
+export default AgregarProducto;

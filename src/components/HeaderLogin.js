@@ -8,20 +8,20 @@ const HeaderLogin=({carrito}) =>{
     const [loggIn, setLoggIn] = useState(false);
     if(loggIn){
         return(
-            <div class="row justify-content-end">
-                <div className="col-sm-2">
+            <div class="row justify-content-start">
+                <div className="col-1">
                     <Link to="/carrito" class="position-relative">
                         <img src={iconCarrito} className="header-icon"></img>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        <span class="position-absolute top-0 start-80 translate-middle badge rounded-pill bg-danger">
                             {carrito}
                         </span>
                     </Link>
                 </div>
-                <div className="col-sm-2">
+                <div className="col-1">
                     <img src={iconUser} className="header-icon"></img>
                 </div>
-                <div className="col-sm-4">
-                    <button className="btn btn-outline-danger btn-sm" onClick={() => setLoggIn(false)}>LoggOut</button>
+                <div className="col-2 offset-1">
+                    <button className="btn btn-outline-danger btn-sm" onClick={() => setLoggIn(false)}>Salir</button>
                 </div>
 
             </div>
@@ -29,8 +29,8 @@ const HeaderLogin=({carrito}) =>{
     }else{
         return(
             <div class="row justify-content-end">
-                <div className="col-4">
-                    <button className="btn btn-outline-success btn-sm" onClick={() => setLoggIn(true)}>LoggIn</button>
+                <div className="col">
+                    <button className="btn btn-outline-success btn-sm" onClick={() => setLoggIn(true)}>Iniciar Sesion</button>
                 </div>
             </div>
         );

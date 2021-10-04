@@ -1,4 +1,4 @@
-import './ListaVentas.css'
+import './ventas.css'
 import React, { useState } from "react";
 import Header from '../../components/Header';
 const ventas = [{
