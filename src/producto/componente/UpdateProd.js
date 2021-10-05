@@ -1,10 +1,8 @@
 import iconUser from '../../img/icon-user.svg';
 import iconIng from '../../img/icon-btn-ingresar.svg';
-import '../../ventas/components/ListaVentas.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import Header from '../../components/Header';
-
 import Alert from '../../components/Alert';
 
 class UpdateProd extends React.Component {

@@ -21,14 +21,16 @@ const ListaUsuarios = ({ usu }) => {
     return (
                 usu.map((usuarios)=>(
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{usuarios.id}</th>
                         <td>{usuarios.nombre}</td>
                         <td>{usuarios.apellido}</td>
                         <td>{usuarios.tipo_identificacion}</td>
                         <td>{usuarios.numero_documento}</td>
                         <td>{usuarios.rol}</td>
-                        <td><button type="button" class="btn btn-warning"><Link to="/UpdateVend">Editar</Link></button></td>
-                        <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(usuarios.id)}> Eliminar </button></td>  
+                        <td colspan="2" className="col">
+                            <button type="button" class="btn btn-warning"><Link to="/UpdateVend">Editar</Link></button>
+                            <button type="button"  className="btn btn-danger" onClick={() => EliminarItem(usuarios.id)}> Eliminar </button>
+                        </td>
             
                     </tr>
                 ))

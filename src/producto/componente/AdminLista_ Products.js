@@ -21,12 +21,14 @@ const AdminLista_Products = ({ prod }) => {
     return (
         prod.map((prode)=>(
         <tr>
-            <th scope="row">1</th>
+            <th scope="row">{prode.id}</th>
             <td>{prode.nombreP}</td>
             <td>{prode.cantidad}</td>
             <td>{prode.precio}</td>
-            <td><Link to="/updateProd" prod={prode.id}><button type="button" class="btn btn-warning">Editar</button></Link></td>
-            <td><button class="btn btn-danger" onClick={() => EliminarItem(prode.id)}>Eliminar</button></td>
+            <td>
+                <Link to="/updateProd" prod={prode.id}><button type="button" class="btn btn-warning">Editar</button></Link>
+                <button class="btn btn-danger" onClick={() => EliminarItem(prode.id)}>Eliminar</button>
+            </td>
         </tr>
     ))
     )
