@@ -1,3 +1,16 @@
 .nav-link{
 	color: rgb(12, 163, 100);
 }
+@media (min-width: 600px) {
+	#logoImproTic{
+		height: 4.8rem;
+	}
+	.header-icon{
+		height: 1.8rem;
+	}
+}
+@media (max-width: 600px) {
+	.header-icon{
+		height: 2rem;
+	}
+}

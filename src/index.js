@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
-import Lista_Productos from './producto/componente/lista-productos';
 const container=document.getElementById('root');
 
 ReactDOM.render(<App />,container);
