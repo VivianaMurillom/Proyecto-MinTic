@@ -1,20 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD:src/components/UpdateVend.js
-<<<<<<< HEAD
-import './css.css';
-=======
-import '../ventas/components/ListaVentas.css'
-=======
-import '../../ventas/components/ListaVentas.css'
->>>>>>> 00dbf6ece89f5401f5550d5ef2c8a9f7aadf862f:src/Usuarios/component/UpdateVend.js
+import React, { useState,useEffect }  from "react";
+import '../../Usuarios/component/usuarios.css';
 import 'bootstrap/dist/css/bootstrap.css';
->>>>>>> 59a5067fb574784e33c8c373c678ee2264e64113
-import React from "react";
+import Header from "../../components/Header";
 
 function UpdateVend() {
-=======
-import React, { useState,useEffect } from "react";
-import Header from "../../components/Header";
 
 const usuarios = [{
     "id": 1,
@@ -33,8 +22,9 @@ const usuarios = [{
     "rol":"administrador"
 }
 ]
+
+
 const UpdateVend=({info})=> {
->>>>>>> cae8590b166428c6aaf0392fd78de645c74e28ea
     return (
         <div className="GestVend">
             <header className="GestVend-header">
@@ -87,29 +77,18 @@ const UpdateVend=({info})=> {
                                  </div>
                             </form>
 
-
-
                         </div>
 
                         <aside id="der"></aside>
 
                     </section>
 
-
-
                     <footer> &copy; Todos los derechos reservados.</footer>
-
-
-
-
-
                 </body>
             </header>
-
         </div>
-
     );
 }
+}
+
 export default UpdateVend;
-
-
