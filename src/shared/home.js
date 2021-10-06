@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import Header from '../components/Header';
 import Lista_Productos from "../producto/componente/lista-productos";
+import Footer from '../components/footer';
 
 function home() {
   
@@ -20,14 +21,9 @@ function home() {
       </div>
 
 
-
-      <footer>
-        <div className="row justify-content-center">
-          <div className="col col-sm-3">
-            &copy; Todos los derechos reservados.
-          </div>
-        </div>
-      </footer>
+      <div>
+        <Footer></Footer>
+      </div>
     </div>
   );
 }
