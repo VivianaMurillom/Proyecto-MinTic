@@ -1,5 +1,9 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect }  from "react";
+import '../../Usuarios/component/usuarios.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import Header from "../../components/Header";
+
+function UpdateVend() {
 
 const usuarios = [{
     "id": 1,
@@ -18,6 +22,8 @@ const usuarios = [{
     "rol":"administrador"
 }
 ]
+
+
 const UpdateVend=({info})=> {
     return (
         <div className="GestVend">
@@ -71,29 +77,18 @@ const UpdateVend=({info})=> {
                                  </div>
                             </form>
 
-
-
                         </div>
 
                         <aside id="der"></aside>
 
                     </section>
 
-
-
                     <footer> &copy; Todos los derechos reservados.</footer>
-
-
-
-
-
                 </body>
             </header>
-
         </div>
-
     );
 }
+}
+
 export default UpdateVend;
-
-
