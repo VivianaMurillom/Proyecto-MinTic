@@ -1,4 +1,3 @@
-import './ListaVentas.css';
 import React, { useState } from "react";
 import UpdateVentas from './UpdateVentas';
 import { Link } from "react-router-dom";
@@ -28,23 +27,19 @@ const ListaVentas = ({ ventas }) => {
     return (
         ventas.map((vent) => (    
             <tr>
-            <th scope="row">#</th>
+            <th scope="row">{vent.id}</th>
             <td>{vent.nombreComprador}</td>
             <td>{vent.producto}</td>
             <td>{vent.cantidad}</td>
             <td>{vent.nombreVendedor}</td>
             <td>{vent.total}</td>
-
-
-            
-            <td><Link to="/updateVentas" ><button className="btn btn-warning" onClick={()=>UpdateItem(vent.id)}>Editar</button></Link></td>
-            <td><button type="button"  className="btn btn-danger" onClick={() => EliminarItem(vent.id)}> Eliminar</button></td>  
- 
+            <td colspan="2" className="col">
+                <Link to="/updateVentas" ><button className="btn btn-warning btn-sm" onClick={()=>UpdateItem(vent.id)}>Editar</button></Link> 
+                <button type="button"  className="btn btn-danger btn-sm" onClick={() => EliminarItem(vent.id)}> Eliminar</button>
+            </td>
             </tr>
         ))
-        
     )
-    
 }
 export default ListaVentas;
 

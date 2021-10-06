@@ -1,3 +1,8 @@
+import './usuarios.css';
+import iconCliente from '../../img/icon-cliente.png';
+import iconProducto from '../../img/icon-producto.png';
+import iconVendedor from '../../img/icon-vendedor.png';
+import iconIng from '../../img/icon-btn-ingresar.svg';
 import ListaUsuarios from './ListaUsuarios';
 import React from "react";
 import Header from '../../components/Header';
@@ -40,75 +45,72 @@ class AgregarUsuario extends React.Component {
         let formIsValid = true;
 
         //Nombre
-        if (!fields["regnombre"]) {
+        if (!fields["regUsuarioNombre"]) {
             formIsValid = false;
-            errors["regnombre"] = "Campo obligatorio";
+            errors["regUsuarioNombre"] = "Campo obligatorio.";
         }
 
-        if (typeof fields["regnombre"] !== "undefined") {
-            if (!fields["regnombre"].match(/^[a-zA-Z ]+$/)) {
+        if (typeof fields["regUsuarioNombre"] !== "undefined") {
+            if (!fields["regUsuarioNombre"].match(/^[a-zA-Z ]+$/)) {
                 formIsValid = false;
-                errors["regnombre"] = "Solo letras";
+                errors["regUsuarioNombre"] = "Solo letras.";
             }
         }
         
 
         //apellido
-        if (!fields["regapellido"]) {
+        if (!fields["regUsuarioApellidos"]) {
             formIsValid = false;
-            errors["regapellido"] = "Campo obligatorio";
+            errors["regUsuarioApellidos"] = "Campo obligatorio.";
         }
 
-        if (typeof fields["regapellido"] !== "undefined") {
-            if (!fields["regapellido"].match(/^[a-zA-Z ]+$/)) {
+        if (typeof fields["regUsuarioApellidos"] !== "undefined") {
+            if (!fields["regUsuarioApellidos"].match(/^[a-zA-Z ]+$/)) {
                 formIsValid = false;
-                errors["regapellido"] = "Solo letras";
+                errors["regUsuarioApellidos"] = "Solo letras.";
             }
         }
 
          //tipo_documento
-         if (!fields["regtipo_identificacion"]) {
+         if (!fields["regUsuarioTipoId"]) {
             formIsValid = false;
-            errors["regtipo_identificacion"] = "Campo obligatorio";
+            errors["regUsuarioTipoId"] = "Campo obligatorio.";
         }
 
-        if (typeof fields["regtipo_identificacion"] !== "undefined") {
-            if (!fields["regtipo_identificacion"].match(/^[a-zA-Z ]+$/)) {
+        if (typeof fields["regUsuarioTipoId"] !== "undefined") {
+            if (!fields["regUsuarioTipoId"] != "") {
                 formIsValid = false;
-                errors["regtipo_identificacion"] = "Solo letras";
+                errors["regUsuarioTipoId"] = "Seleccione una opción.";
             }
         }
-
+        
          //documento
-         if (!fields["regdocumento"]) {
+         if (!fields["regUsuarioDocumento"]) {
             formIsValid = false;
-            errors["regdocumento"] = "Campo obligatorio";
+            errors["regUsuarioDocumento"] = "Campo obligatorio.";
         }
 
-        if (typeof fields["regdocumento"] !== "undefined") {
-            if (!fields["regdocumento"].match(/^[0-9 ]+$/)) {
+        if (typeof fields["regUsuarioDocumento"] !== "undefined") {
+            if (!fields["regUsuarioDocumento"].match(/^[0-9 ]+$/)) {
                 formIsValid = false;
-                errors["regdocumento"] = "Solo numeros";
+                errors["regUsuarioDocumento"] = "Número de documento no válido.";
             }
         }
 
           //rol
-          if (!fields["regrol"]) {
+          if (!fields["regUsuarioRol"]) {
             formIsValid = false;
-            errors["regrol"] = "Campo obligatorio";
+            errors["regUsuarioRol"] = "Campo obligatorio.";
         }
 
-        if (typeof fields["regrol"] !== "undefined") {
-            if (!fields["regrol"].match(/^[a-zA-Z ]+$/)) {
+        if (typeof fields["regUsuarioRol"] !== "undefined") {
+            if (!fields["regUsuarioRol"] != "") {
                 formIsValid = false;
-                errors["regrol"] = "Solo letras";
+                errors["regUsuarioRol"] = "Seleccione una opción.";
             }
         }
 
-       
-
-
-        this.setState({ errors: errors });
+        this.setState({ errors: errors, alerta: "" });
         return formIsValid;
     }
 
@@ -119,6 +121,7 @@ class AgregarUsuario extends React.Component {
         if (this.handleValidation()) {
             lista_usuarios.push(
                 {
+                    id: lista_usuarios.length + 1,
                     nombre: e["target"][0].value,
                     apellido: e["target"][1].value,
                     tipo_identificacion: e["target"][2].value,
@@ -134,92 +137,124 @@ class AgregarUsuario extends React.Component {
     handleChange(field, e) {
         let fields = this.state.fields;
         fields[field] = e.target.value;
-        this.setState({ fields });
+        this.setState({ fields, alerta: "" });
     }
     render() {
       
         return (
-            <div className="GestVend">
+            <div>
                 <div>
                     <Header />
                 </div>
-                <header className="text-center" >
-                    <h3>Agregar Usuarios</h3>
-                    <body>
+                <div className="container-sm">
                     <div className="row justify-content-center">
+                        <div className="col col-md-9 regUsuario-content">
+                            <div className="col-sm-auto">
+                                <div className="row justify-content-center">
+                                    <div className="col-sm-auto">
+                                        <h3>Registrar Usuarios</h3>
+                                    </div>
+                                </div>
+                                <div className="row justify-content-center">
                                     <div className="col-sm-6">
                                         {this.state.alerta == "success" ? <Alert tipo="success" mensaje="Usuario agregado correctamente"/>: ""}
                                         {this.state.alerta == "danger" ? <Alert tipo="danger" mensaje="Error al agregar el usuario"/>: ""}
                                     </div>
-                     </div><br />
-                        <form onSubmit={this.contactSubmit.bind(this)} className="m-4">
-                            
-                            <div className="row m-2">
-                                <div className="col">
-                                <label for="nombre" className="form-label">Nombre </label>
-                                    <input type="text" className="form-control" onChange={this.handleChange.bind(this, "regnombre")} value={this.state.fields["regnombre"]} placeholder="Escriba el usuario" id="nombre" name="nombre" required></input>
-                                     
-                                </div>
-                                <div className="col">
-                                <label for="apellido" className="form-label" >Apellido</label>
-                                    <input type="text" className="form-control"onChange={this.handleChange.bind(this, "regapellido")} value={this.state.fields["regapellido"]} placeholder="Escriba el apellido" id="apellido" name="apellido" required ></input>
-                                   
-                                </div>
-                            
-                                <div className="col">
-                                <label for="tipo_identificacion" className="form-label" >Tipo identificacion</label>
-                                    <select className="form-select" onChange={this.handleChange.bind(this, "regtipo_identificacion")} value={this.state.fields["regtipo_identificacion"]} id="tipo_identificacion" name="tipo_identificacion">
-                                        <option value="Cedula">Cedula</option>
-                                        <option value="Tarjeta">Tarjeta</option>
-                                        <option value="Cedula Extranjera">Cedula Extranjera</option>
-                                        
-                                    </select>
-                        
-                                </div>
+                                </div><br />
+                                <form className="card" onSubmit={this.contactSubmit.bind(this)}>
+                                    <div className="row g-2 p-2">
+                                        <div className="col-sm-4 position-relative">
+                                            <label for="regUsuarioNombre" className="form-label">Nombre del usuario</label>
+                                            <div className="input-group justify-content-center">
+                                                <span className="input-group-text">
+                                                    <img src={iconCliente} className="usuarios-content-form-icon" alt="icono"/>
+                                                </span>
+                                                <input type="text" class="form-control" id="regUsuarioNombre" onChange={this.handleChange.bind(this, "regUsuarioNombre")} value={this.state.fields["regUsuarioNombre"]} placeholder="Escriba el nombre" required ></input>
+                                            </div>
+                                            <div>
+                                                <span style={{ color: "red" }}>{this.state.errors["regUsuarioNombre"]}</span>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-4 position-relative">
+                                            <label for="regUsuarioApellidos" className="form-label">Apellidos del usuario</label>
+                                            <div className="input-group justify-content-center">
+                                                <span className="input-group-text">
+                                                    <img src={iconCliente} className="usuarios-content-form-icon" alt="icono"/>
+                                                </span>
+                                                <input type="text" class="form-control" id="regUsuarioApellidos" onChange={this.handleChange.bind(this, "regUsuarioApellidos")} value={this.state.fields["regUsuarioApellidos"]} placeholder="Escriba los apellidos" required ></input>
+                                            </div>
+                                            <div>
+                                                <span style={{ color: "red" }}>{this.state.errors["regUsuarioApellidos"]}</span>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-4 position-relative">
+                                            <label for="regUsuarioTipoId" className="form-label">Tipo de identificación</label>
+                                            <div className="input-group justify-content-center">
+                                                <span className="input-group-text">
+                                                    <img src={iconProducto} className="usuarios-content-form-icon" alt="icono"/>
+                                                </span>
+                                                <select className="form-select" id="regUsuarioTipoId" onChange={this.handleChange.bind(this, "regUsuarioTipoId")} value={this.state.fields["regUsuarioTipoId"]} required >
+                                                    <option value="" selected>Seleccione el tipo de identificación</option>
+                                                    <option value="Cedula">Cedula</option>
+                                                    <option value="Tarjeta">Tarjeta</option>
+                                                    <option value="Cedula Extranjera">Cedula Extranjera</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <span style={{ color: "red" }}>{this.state.errors["regUsuarioTipoId"]}</span>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-4 position-relative">
+                                            <label for="regUsuarioDocumento" className="form-label">Número de documento</label>
+                                            <div className="input-group justify-content-center">
+                                                <span className="input-group-text">
+                                                    #
+                                                </span>
+                                                <input type="number" class="form-control" id="regUsuarioDocumento" onChange={this.handleChange.bind(this, "regUsuarioDocumento")} value={this.state.fields["regUsuarioDocumento"]} placeholder="Escriba el numero de documento" required ></input>
+                                            </div>
+                                            <div>
+                                                <span style={{ color: "red" }}>{this.state.errors["regUsuarioDocumento"]}</span>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-5 position-relative">
+                                            <label for="regUsuarioRol" className="form-label">Rol de usuario</label>
+                                            <div className="input-group justify-content-center">
+                                                <span className="input-group-text">
+                                                    <img src={iconProducto} className="usuarios-content-form-icon" alt="icono"/>
+                                                </span>
+                                                <select className="form-select" id="regUsuarioRol" onChange={this.handleChange.bind(this, "regUsuarioRol")} value={this.state.fields["regUsuarioRol"]} required >
+                                                    <option value="" selected>Seleccione el rol de usuario</option>
+                                                    <option value="Administrador" >Administrador</option>
+                                                    <option value="Vendedor" >Vendedor</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <span style={{ color: "red" }}>{this.state.errors["regUsuarioRol"]}</span>
+                                            </div>
+                                        </div>
+                                        <div className="col-12 card-header">
+                                            <div className="d-grid gap-1 d-sm-flex justify-content-center">
+                                                <button type="submit" className="btn btn-primary">
+                                                    <img src={iconIng} className="usuarios-content-form-btn-icon" id="iconIng" alt="icono boton guardar"/>
+                                                    Guardar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div className="row m-2">   
-
-                                <div className="col">
-                                <label for="documento" className="form-label" >Cedula</label>
-                                    <input type="text" className="form-control"onChange={this.handleChange.bind(this, "regdocumento")} value={this.state.fields["regdocumento"]} placeholder="Escriba su documento" id="documento" name="documento" required ></input>
-                                    
+                        </div>
+                        <div className="row justify-content-center">
+                            <div className="card col-sm-9">
+                                <div className="card-header">
+                                    <div className="row justify-content-center">
+                                        <div className="col-sm-auto">
+                                            <h3>Lista de Usuarios</h3>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                
-                                <div className="col">
-                                <label for="rol" className="form-label" >Rol</label>
-                                    <select name="rol" id="rol" className="form-select" onChange={this.handleChange.bind(this, "regrol")} value={this.state.fields["regrol"]}>
-                                        <option value="Administrador" >Administrador</option>
-                                        <option value="Vendedor" >Vendedor</option>
-                                        
-                                    </select>
-                                
-                                </div>
-                            
-                            </div>
-                            <div>
-                            </div>
-                            <div classNameName="text-left " >
-                                <button type="submit" className="btn btn-primary mt-2" >Guardar</button>
-                            </div>
-                        </form>
-
-
-
-
-                        <div className="card">
-                            <div className="card-header" >
-                                <ul className="nav nav-tabs card-header-tabs">
-
-                                    <h3 >Lista De Vendedores</h3>
-
-
-                                </ul>
-                            </div>
-                            <div className="card-body">
-
-                                <div className="container">
-                                    <table className="table">
+                                <div className="table-responsive">
+                                    <table className="table table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -228,25 +263,26 @@ class AgregarUsuario extends React.Component {
                                                 <th scope="col">Tipo Documento</th>
                                                 <th scope="col">N° Documento</th>
                                                 <th scope="col">Rol</th>
-                                                <th scope="col">Actualizar</th>
-                                                <th scope="col">Eliminar</th>
+                                                <th scope="col">Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <ListaUsuarios  usu={lista_usuarios}/> 
-                                       </tbody>
+                                            <ListaUsuarios  usu={lista_usuarios}/>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-
-
-                        <footer> &copy; Todos los derechos reservados.</footer>
-
-                    </body>
-
-
-                </header>
+                    </div>
+                    <div className="container-sm">
+                        <div className="row justify-content-center">
+                            <div className="col col-sm-3">
+                                &copy; Todos los derechos reservados.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
         )

@@ -8,3 +8,7 @@
     font-style: italic;
     color: rgb(12, 163, 100);
 }
+.producto-content-form-btn-icon{
+    margin-right: .5rem;
+    height: 1.2rem;
+}

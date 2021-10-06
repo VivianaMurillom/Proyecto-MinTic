@@ -17,7 +17,7 @@ class Header extends React.Component{
                                     <img src={LogoImproTic} className="img-fluid" id="logoImproTic"></img>
                                 </div>
                             </div>
-                            <div className="col-3">
+                            <div className="col-4">
                                 <div className="p-3">
                                     <HeaderLogin/>
                                 </div>
@@ -32,13 +32,13 @@ class Header extends React.Component{
                                 <Link to="/" class="nav-link active">Inicio</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to="/pag" class="nav-link">Gestion de Ventas</Link>
+                                <Link to="/Ventas" class="nav-link">Gestion de Ventas</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to="/gusuarios" class="nav-link">Gestion de Usuarios</Link>
+                                <Link to="/Usuarios" class="nav-link">Gestion de Usuarios</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to="/insertProducto" class="nav-link">Gestion de productos</Link>
+                                <Link to="/Productos" class="nav-link">Gestion de productos</Link>
                             </li>
                             <li class="nav-item">
                                 <Link to="/login" class="nav-link">Form Login</Link>
