@@ -1,0 +1,5 @@
+mongo db remoto
+username:alejo
+clave:736rSd4Z60yXbTUz
+
+mongodb+srv://alejo:clave:736rSd4Z60yXbTUz@cluster0.702jh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
