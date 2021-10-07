@@ -7,7 +7,7 @@ const productsRoutes = require("./routes/products");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //coneccion a la db mongo
-mongoose.connect("mongodb+srv://alejo:IIrpVJdHq1P7H9KE@cluster0.702jh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").then(() => {
+mongoose.connect("mongodb+srv://alejo:IIrpVJdHq1P7H9KE@cluster0.702jh.mongodb.net/improTicDB?retryWrites=true&w=majority").then(() => {
     console.log("Estamos conectados")
 });
 
