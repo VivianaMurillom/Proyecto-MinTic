@@ -7,6 +7,7 @@ import React from "react";
 import Header from '../../components/Header';
 import ListaVentas from './ListaVentas';
 import Alert from '../../components/Alert';
+import Footer from '../../components/footer';
 
 const listventas = [{
     "id": 1,
@@ -331,12 +332,8 @@ class AgregarVenta extends React.Component {
                     </div>
                 </div>
 
-                <div className="container-sm">
-                    <div className="row justify-content-center">
-                        <div className="col col-sm-3">
-                            &copy; Todos los derechos reservados.
-                        </div>
-                    </div>
+                <div>
+                    <Footer></Footer>
                 </div>
             </div>
         )

@@ -7,6 +7,7 @@ import ListaUsuarios from './ListaUsuarios';
 import React from "react";
 import Header from '../../components/Header';
 import Alert from '../../components/Alert';
+import Footer from '../../components/footer';
 
 const lista_usuarios = [{
     "id": 1,
@@ -274,15 +275,10 @@ class AgregarUsuario extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="container-sm">
-                        <div className="row justify-content-center">
-                            <div className="col col-sm-3">
-                                &copy; Todos los derechos reservados.
-                            </div>
-                        </div>
+                    <div>
+                        <Footer></Footer>
                     </div>
                 </div>
-                
             </div>
 
         )

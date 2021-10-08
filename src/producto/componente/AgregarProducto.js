@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../../components/Header';
 import AdminLista_Products from './AdminLista_ Products';
 import Alert from '../../components/Alert';
+import Footer from '../../components/footer';
 
 const products = [{
     "id": 1,
@@ -227,12 +228,8 @@ class AgregarProducto extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="container-sm">
-                    <div className="row justify-content-center">
-                        <div className="col col-sm-3">
-                            &copy; Todos los derechos reservados.
-                        </div>
-                    </div>
+                <div>
+                    <Footer></Footer>
                 </div>
             </div>
         );
