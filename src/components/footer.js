@@ -11,7 +11,7 @@ const Footer = () => {
             <footer className ="text-white bg-dark py-2">
                 <div className="row d-flex">
                     <Link to="/" className="col-12 col-md-5">
-                        <Image src= {LogoMisionTic} rounded/>
+                        <Image src= {LogoMisionTic} fluid/>
                     </Link>
                     <p className="col-12 col-md-4 mt-5 mb-5 text-center aling list-unstyled aling-items-center justyfy-content-center">
                         La Misión TIC 2022 es un programa liderado por el Gobierno del Presidente Iván Duque con un gran objetivo: formar 100.000 jóvenes y adultos colombianos en programación, para enfrentar los desafíos de la Cuarta Revolución Industrial. En esta misión, mujeres y hombres serán elegidos y formados para ser parte de la aventura que propulsará el mundo hacia adelante.
